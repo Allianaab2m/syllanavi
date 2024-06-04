@@ -40,7 +40,5 @@
   "engines": {
     "node": ">=20.14.0"
   },
-  "trustedDependencies": [
-    "@biomejs/biome"
-  ]
+  "trustedDependencies": ["@biomejs/biome"]
 }
