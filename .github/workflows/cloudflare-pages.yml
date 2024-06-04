@@ -1,6 +1,11 @@
 name: Cloudflare Pages
 
-on: [push]
+on: 
+  push:
+    paths:
+      - 'app/**'
+      - 'public/**'
+      - 'functions/**'
 
 jobs:
   publish:
