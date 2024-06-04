@@ -13,7 +13,8 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["patch", "minor"],
-      "excludePackageNames": ["typescript"]
+      "excludePackageNames": ["typescript"],
+      "groupName": "all minor and patch dependencies"
     }
   ],
   "enabledManagers": ["bun", "github-actions"]
