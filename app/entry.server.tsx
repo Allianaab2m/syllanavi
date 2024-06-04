@@ -4,10 +4,13 @@
  * For more information, see https://remix.run/file-conventions/entry.server
  */
 
+import { CacheProvider } from "@emotion/react";
+import createEmotionServer from "@emotion/server/create-instance";
 import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
 import { RemixServer } from "@remix-run/react";
-import { isbot } from "isbot";
-import { renderToReadableStream } from "react-dom/server";
+import { renderToString } from "react-dom/server";
+import { ServerStyleContext } from "./context";
+import createEmotionCache from "./createEmotionCache";
 
 export default async function handleRequest(
   request: Request,
@@ -19,25 +22,30 @@ export default async function handleRequest(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   loadContext: AppLoadContext,
 ) {
-  const body = await renderToReadableStream(
-    <RemixServer context={remixContext} url={request.url} />,
-    {
-      signal: request.signal,
-      onError(error: unknown) {
-        // Log streaming rendering errors from inside the shell
-        console.error(error);
-        responseStatusCode = 500;
-      },
-    },
+  const cache = createEmotionCache();
+  const { extractCriticalToChunks } = createEmotionServer(cache);
+
+  const html = renderToString(
+    <ServerStyleContext.Provider value={null}>
+      <CacheProvider value={cache}>
+        <RemixServer context={remixContext} url={request.url} />
+      </CacheProvider>
+    </ServerStyleContext.Provider>,
+  );
+  const chunks = extractCriticalToChunks(html);
+
+  const markup = renderToString(
+    <ServerStyleContext.Provider value={chunks.styles}>
+      <CacheProvider value={cache}>
+        <RemixServer context={remixContext} url={request.url} />
+      </CacheProvider>
+    </ServerStyleContext.Provider>,
   );
 
-  if (isbot(request.headers.get("user-agent") || "")) {
-    await body.allReady;
-  }
-
   responseHeaders.set("Content-Type", "text/html");
-  return new Response(body, {
-    headers: responseHeaders,
+
+  return new Response(`<!DOCTYPE html>${markup}`, {
     status: responseStatusCode,
+    headers: responseHeaders,
   });
 }
