@@ -8,6 +8,7 @@
   "timezone": "Asia/Tokyo",
   "prHourlyLimit": 0,
   "rangeStrategy": "bump",
+  "reviewers": ["Allianaab2m"],
   "packageRules": [
     {
       "matchUpdateTypes": ["patch", "minor"],
