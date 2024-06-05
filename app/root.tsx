@@ -11,6 +11,7 @@ import {
 } from "@remix-run/react";
 import type React from "react";
 import { useContext, useEffect } from "react";
+import { Header } from "./components";
 import { ClientStyleContext, ServerStyleContext } from "./context";
 
 export const meta: MetaFunction = () => {
@@ -94,6 +95,7 @@ export default function App() {
   return (
     <Document>
       <ChakraProvider>
+        <Header />
         <Outlet />
       </ChakraProvider>
     </Document>
