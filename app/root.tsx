@@ -1,4 +1,4 @@
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { Box, ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import {
   Links,
@@ -22,7 +22,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <MantineProvider>
           <Header />
-          {children}
+          <Box mx="xl">{children}</Box>
         </MantineProvider>
         <ScrollRestoration />
         <Scripts />
