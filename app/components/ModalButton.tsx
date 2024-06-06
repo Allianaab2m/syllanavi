@@ -1,4 +1,5 @@
-import { Button, Modal, type ButtonProps } from "@mantine/core";
+import type { ButtonProps } from "@mantine/core";
+import { Button, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import type { ReactNode } from "react";
 

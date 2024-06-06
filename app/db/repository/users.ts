@@ -1,4 +1,5 @@
-import { eq, type InferInsertModel } from "drizzle-orm";
+import type { InferInsertModel } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import type { DrizzleD1Database } from "drizzle-orm/d1";
 import type * as Schema from "~/db/schema";
 import { users } from "~/db/schema";

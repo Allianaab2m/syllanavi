@@ -1,4 +1,5 @@
-import { json, type ActionFunctionArgs } from "@remix-run/cloudflare";
+import type { ActionFunctionArgs } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
 import { db } from "~/db";
 import { Users } from "~/db/repository/users";
 
