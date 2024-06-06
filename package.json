@@ -18,6 +18,9 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@mantine/core": "^7.10.1",
+    "@mantine/form": "^7.10.1",
+    "@mantine/hooks": "^7.10.1",
     "@remix-run/cloudflare": "^2.9.2",
     "@remix-run/cloudflare-pages": "^2.9.2",
     "@remix-run/react": "^2.9.2",
