@@ -15,7 +15,9 @@
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "bun run build && wrangler pages dev",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
   },
   "dependencies": {
     "@mantine/core": "^7.10.1",
