@@ -20,6 +20,8 @@
     "migrate": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@conform-to/react": "^1.1.4",
+    "@conform-to/zod": "^1.1.4",
     "@mantine/core": "^7.10.1",
     "@mantine/form": "^7.10.1",
     "@mantine/hooks": "^7.10.1",
