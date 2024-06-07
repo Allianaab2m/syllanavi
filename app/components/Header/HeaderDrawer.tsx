@@ -1,4 +1,6 @@
 import { Drawer, Stack, Text } from "@mantine/core";
+import { ModalButton } from "../ModalButton";
+import { Register } from "../Register";
 
 type Props = {
   opened: boolean;
@@ -8,9 +10,13 @@ export function HeaderDrawer(props: Props) {
   return (
     <Drawer {...props} position="right">
       <Stack>
-        <Text component="a" href="/register" size="xl">
+        <ModalButton
+          title="新規登録"
+          modalContent={<Register />}
+          buttonProps={{ size: "lg", color: "dark", variant: "transparent" }}
+        >
           新規登録
-        </Text>
+        </ModalButton>
         <Text component="a" href="/login" size="xl">
           ログイン
         </Text>
