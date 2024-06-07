@@ -1,4 +1,4 @@
-import { Button, TextInput } from "@mantine/core";
+import { Button, Stack, TextInput } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { useActionData, useSubmit } from "@remix-run/react";
 import { z } from "zod";
