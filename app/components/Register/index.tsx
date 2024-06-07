@@ -45,22 +45,24 @@ export function Register() {
         });
       })}
     >
-      <TextInput
-        withAsterisk
-        label="ユーザー名"
-        placeholder="英数字のみ 4~16文字"
-        key={form.key("name")}
-        {...form.getInputProps("name")}
-      />
-      <TextInput
-        withAsterisk
-        label="パスワード"
-        placeholder="英数字・記号 8文字以上"
-        type="password"
-        key={form.key("password")}
-        {...form.getInputProps("password")}
-      />
-      <Button type="submit">登録</Button>
+      <Stack>
+        <TextInput
+          withAsterisk
+          label="ユーザー名"
+          placeholder="英数字のみ 4~16文字"
+          key={form.key("name")}
+          {...form.getInputProps("name")}
+        />
+        <TextInput
+          withAsterisk
+          label="パスワード"
+          placeholder="英数字・記号 8文字以上"
+          type="password"
+          key={form.key("password")}
+          {...form.getInputProps("password")}
+        />
+        <Button type="submit">登録</Button>
+      </Stack>
     </form>
   );
 }
