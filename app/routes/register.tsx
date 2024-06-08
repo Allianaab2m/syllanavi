@@ -4,10 +4,11 @@ import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
 import type { ActionFunctionArgs } from "@remix-run/cloudflare";
 import { json, redirect } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
-import { isErr } from "option-t/plain_result";
+import { isErr, unwrapOk } from "option-t/plain_result";
 import { z } from "zod";
 import { db } from "~/db";
 import { Users } from "~/db/repository/users";
+import { createUserSession } from "~/sessions";
 
 export const RegisterSchema = z.object({
   name: z
@@ -45,7 +46,9 @@ export async function action({ request, context }: ActionFunctionArgs) {
     });
   }
 
-  if (isErr(await users.create({ name: submission.value.name }))) {
+  const userCreateRes = await users.create({ name: submission.value.name });
+
+  if (isErr(userCreateRes)) {
     return json({
       success: false,
       message: "DB Error",
@@ -57,7 +60,9 @@ export async function action({ request, context }: ActionFunctionArgs) {
     });
   }
 
-  return redirect("/");
+  const user = unwrapOk(userCreateRes);
+
+  return await createUserSession(context)(user.id, "/");
 }
 
 export default function Register() {
