@@ -1,5 +1,6 @@
 import { Box, Text } from "@mantine/core";
-import { json, redirect, type LoaderFunctionArgs } from "@remix-run/cloudflare";
+import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
+import { json, redirect } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 import { db } from "~/db";
 import { Users } from "~/db/repository/users";
