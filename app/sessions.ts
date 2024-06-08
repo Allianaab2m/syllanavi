@@ -42,3 +42,16 @@ export const getUserSession =
       userName: session.get("userName"),
     };
   };
+
+export const destroyUserSession =
+  (context: AppLoadContext) => async (request: Request) => {
+    const session = await sessionStorage(context).getSession(
+      request.headers.get("Cookie"),
+    );
+
+    return redirect("/", {
+      headers: {
+        "Set-Cookie": await sessionStorage(context).destroySession(session),
+      },
+    });
+  };
