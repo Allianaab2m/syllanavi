@@ -1,6 +1,6 @@
-import { Box, ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
-import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
 import {
   Links,
   Meta,
@@ -20,6 +20,10 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
     userName: session.userName,
   });
 }
+
+export const meta: MetaFunction = () => {
+  return [{ title: "Syllanavi" }];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
