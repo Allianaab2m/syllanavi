@@ -1,12 +1,17 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
+import { Alert, Box, Button, Stack, Text, TextInput } from "@mantine/core";
 import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
 import { json, redirect } from "@remix-run/cloudflare";
-import { Form, useActionData, useNavigation } from "@remix-run/react";
+import {
+  Form,
+  useActionData,
+  useLoaderData,
+  useNavigation,
+} from "@remix-run/react";
 import { z } from "zod";
 import { checkPassword } from "~/auth.server";
 import { db } from "~/db";
@@ -22,6 +27,10 @@ export async function action({ context, request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const submission = parseWithZod(formData, { schema: LoginSchema });
   const users = Users(db(context));
+  const url = new URL(request.url);
+  const redirectTo = url.searchParams.get("redirect")
+    ? `/${url.searchParams.get("redirect")}`
+    : "/";
 
   if (submission.status !== "success") {
     return json({
@@ -49,7 +58,7 @@ export async function action({ context, request }: ActionFunctionArgs) {
     user.password &&
     (await checkPassword(submission.value.password, user.password))
   ) {
-    return await createUserSession(context)(user.id, "/", user.name);
+    return await createUserSession(context)(user.id, redirectTo, user.name);
   }
 
   return json({
@@ -68,11 +77,16 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
   if (session.userId) {
     return redirect("/");
   }
-  return null;
+  const url = new URL(request.url);
+  const isRedirect = Boolean(url.searchParams.get("redirect"));
+  return json({
+    isRedirect,
+  });
 }
 
 export default function Login() {
   const data = useActionData<typeof action>();
+  const { isRedirect } = useLoaderData<typeof loader>();
   const { state } = useNavigation();
 
   const [form, { name, password }] = useForm({
@@ -84,7 +98,15 @@ export default function Login() {
     shouldRevalidate: "onInput",
   });
   return (
-    <Box mx="xl" mt="lg">
+    <Box mx="xl" mt="md">
+      <Alert
+        mb="md"
+        color="red"
+        title="このページを表示するにはログインが必要です。"
+        display={isRedirect ? "inherit" : "none"}
+      >
+        ログインしてください。
+      </Alert>
       <Text size="xl" fw="bold">
         ログイン
       </Text>

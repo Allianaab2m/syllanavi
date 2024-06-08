@@ -21,7 +21,9 @@ export function HeaderMenu({ opened, onOpen, onClose, name }: Props) {
       <Flex columnGap="8" visibleFrom="sm" align="center">
         {name ? (
           <>
-            <Text>{name}としてログイン中</Text>
+            <Text component="a" href="/mypage">
+              {name}としてログイン中
+            </Text>
             <LogoutButton />
           </>
         ) : (
