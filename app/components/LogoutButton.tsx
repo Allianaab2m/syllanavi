@@ -18,7 +18,7 @@ export function LogoutButton() {
         withCloseButton={false}
         centered
       >
-        <Flex gap="sm">
+        <Flex gap="sm" justify="center">
           <Form method="POST" action="/resources/logout" navigate={false}>
             <Button color="red.6" type="submit">
               ログアウト
