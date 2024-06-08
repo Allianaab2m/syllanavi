@@ -1,15 +1,28 @@
 import { Box, ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import {
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  json,
+  useLoaderData,
 } from "@remix-run/react";
 import { Header } from "./components";
+import { getUserSession } from "./sessions";
+
+export async function loader({ context, request }: LoaderFunctionArgs) {
+  const session = await getUserSession(context)(request);
+
+  return json({
+    userName: session.userName,
+  });
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { userName } = useLoaderData<typeof loader>();
   return (
     <html lang="en">
       <head>
@@ -21,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <MantineProvider>
-          <Header />
+          <Header name={userName} />
           <Box mx="xl">{children}</Box>
         </MantineProvider>
         <ScrollRestoration />
