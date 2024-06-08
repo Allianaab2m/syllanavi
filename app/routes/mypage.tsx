@@ -17,7 +17,7 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
       });
     }
   }
-  return redirect("/login");
+  return redirect("/login?redirect=mypage");
 }
 
 export default function MyPage() {
