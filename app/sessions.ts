@@ -7,6 +7,7 @@ import type { Undefinable } from "option-t/undefinable";
 
 type SessionData = {
   userId: string;
+  userName?: string;
 };
 
 const sessionStorage = (context: AppLoadContext) =>
@@ -22,9 +23,11 @@ const sessionStorage = (context: AppLoadContext) =>
   });
 
 export const createUserSession =
-  (context: AppLoadContext) => async (id: string, redirectPath: string) => {
+  (context: AppLoadContext) =>
+  async (id: string, redirectPath: string, name?: string) => {
     const session = await sessionStorage(context).getSession();
     session.set("userId", id);
+    session.set("userName", name);
     return redirect(redirectPath, {
       headers: {
         "Set-Cookie": await sessionStorage(context).commitSession(session),
@@ -33,11 +36,13 @@ export const createUserSession =
   };
 
 export const getUserSession =
-  (context: AppLoadContext) =>
-  async (request: Request): Promise<Undefinable<string>> => {
+  (context: AppLoadContext) => async (request: Request) => {
     const session = await sessionStorage(context).getSession(
       request.headers.get("Cookie"),
     );
 
-    return session.get("userId");
+    return {
+      userId: session.get("userId"),
+      userName: session.get("userName"),
+    };
   };
