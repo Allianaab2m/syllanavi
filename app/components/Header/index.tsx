@@ -21,13 +21,7 @@ export function Header({ name }: Props) {
       <Text component="a" href="/" fw="bold" size="xl">
         Syllanavi
       </Text>
-      {name ? (
-        <Text component="a" href="/mypage">
-          {name}としてログイン中
-        </Text>
-      ) : (
-        <HeaderMenu opened={opened} onOpen={open} onClose={close} />
-      )}
+      <HeaderMenu opened={opened} onOpen={open} onClose={close} name={name} />
     </Flex>
   );
 }
