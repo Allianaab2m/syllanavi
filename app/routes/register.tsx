@@ -2,7 +2,7 @@ import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
 import type { ActionFunctionArgs } from "@remix-run/cloudflare";
-import { json, redirect } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr, unwrapOk } from "option-t/plain_result";
 import { z } from "zod";
@@ -62,7 +62,7 @@ export async function action({ request, context }: ActionFunctionArgs) {
 
   const user = unwrapOk(userCreateRes);
 
-  return await createUserSession(context)(user.id, "/");
+  return await createUserSession(context)(user.id, "/", user.name);
 }
 
 export default function Register() {
