@@ -6,6 +6,7 @@ import { json } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr, unwrapOk } from "option-t/plain_result";
 import { z } from "zod";
+import { hashPassword } from "~/auth.server";
 import { db } from "~/db";
 import { Users } from "~/db/repository/users";
 import { createUserSession } from "~/sessions";
@@ -46,7 +47,12 @@ export async function action({ request, context }: ActionFunctionArgs) {
     });
   }
 
-  const userCreateRes = await users.create({ name: submission.value.name });
+  const hashedPassword = await hashPassword(submission.value.password);
+
+  const userCreateRes = await users.create({
+    name: submission.value.name,
+    password: hashedPassword,
+  });
 
   if (isErr(userCreateRes)) {
     return json({
@@ -79,7 +85,7 @@ export default function Register() {
   });
 
   return (
-    <Box mt="lg">
+    <Box mx="xl" mt="lg">
       <Text size="xl" fw="bold">
         新規登録
       </Text>

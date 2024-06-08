@@ -48,20 +48,31 @@ export const Users = (db: DrizzleD1Database<typeof Schema>) => {
     },
     async findByName(
       name: string,
+      withPassword = false,
     ): Promise<
-      Nullable<{ id: string; name: string; isAdmin: boolean | null }>
+      Nullable<{
+        id: string;
+        name: string;
+        isAdmin: boolean | null;
+        password?: string;
+      }>
     > {
       try {
-        const user = await db.query.users.findFirst({
-          where: eq(users.name, name),
-          columns: {
-            password: false,
-          },
-        });
-        if (!user) {
+        const user = await db
+          .select({
+            id: users.id,
+            name: users.name,
+            isAdmin: users.isAdmin,
+            ...(withPassword && { password: users.password }),
+          })
+          .from(users)
+          .where(eq(users.name, name));
+
+        if (user.length === 0) {
           return null;
         }
-        return user;
+
+        return user[0];
       } catch (e) {
         return null;
       }

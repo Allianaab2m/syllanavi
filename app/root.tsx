@@ -22,7 +22,6 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { userName } = useLoaderData<typeof loader>();
   return (
     <html lang="en">
       <head>
@@ -33,10 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>
-          <Header name={userName} />
-          <Box mx="xl">{children}</Box>
-        </MantineProvider>
+        <MantineProvider>{children}</MantineProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -45,5 +41,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const { userName } = useLoaderData<typeof loader>();
+  return (
+    <>
+      <Header name={userName} />
+      <Outlet />
+    </>
+  );
 }
