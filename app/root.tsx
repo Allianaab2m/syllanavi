@@ -11,26 +11,13 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import { Header } from "./components";
-import { db } from "./db";
-import { Users } from "./db/repository/users";
 import { getUserSession } from "./sessions";
 
 export async function loader({ context, request }: LoaderFunctionArgs) {
-  const userId = await getUserSession(context)(request);
-
-  if (userId) {
-    const user = await Users(db(context)).findById(userId);
-    if (user) {
-      return json({
-        userId,
-        userName: user.name,
-      });
-    }
-  }
+  const session = await getUserSession(context)(request);
 
   return json({
-    userId,
-    userName: null,
+    userName: session.userName,
   });
 }
 
