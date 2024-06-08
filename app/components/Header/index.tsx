@@ -3,7 +3,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { HeaderMenu } from "./HeaderMenu";
 
 type Props = {
-  name: string | null;
+  name?: string;
 };
 
 export function Header({ name }: Props) {
