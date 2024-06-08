@@ -2,5 +2,7 @@
 // by running `wrangler types`
 
 interface Env {
+  ENV: string;
+  SESSION_SECRET: string;
   DB: D1Database;
 }
