@@ -1,9 +1,5 @@
-import {
-  createCookieSessionStorage,
-  redirect,
-  type AppLoadContext,
-} from "@remix-run/cloudflare";
-import type { Undefinable } from "option-t/undefinable";
+import type { AppLoadContext } from "@remix-run/cloudflare";
+import { createCookieSessionStorage, redirect } from "@remix-run/cloudflare";
 
 type SessionData = {
   userId: string;
