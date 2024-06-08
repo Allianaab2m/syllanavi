@@ -17,7 +17,8 @@
     "preview": "bun run build && wrangler pages dev",
     "cf-typegen": "wrangler types",
     "generate": "drizzle-kit generate",
-    "migrate": "drizzle-kit migrate"
+    "migrate": "drizzle-kit migrate",
+    "migrate:local": "bun run generate && wrangler d1 migrations apply syllanavi-d1 --local"
   },
   "dependencies": {
     "@conform-to/react": "^1.1.4",
