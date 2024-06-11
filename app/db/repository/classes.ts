@@ -1,6 +1,7 @@
 import type { InferInsertModel } from "drizzle-orm";
 import type { DrizzleD1Database } from "drizzle-orm/d1";
-import { createOk, type Result } from "option-t/plain_result";
+import type { Result } from "option-t/plain_result";
+import { createOk } from "option-t/plain_result";
 import type * as Schema from "~/db/schema";
 import { classes } from "~/db/schema";
 import { wrapErr } from "~/lib";

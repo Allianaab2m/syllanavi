@@ -1,7 +1,8 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
-import { json, type ActionFunctionArgs } from "@remix-run/cloudflare";
+import type { ActionFunctionArgs } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr } from "option-t/plain_result";
 import { z } from "zod";
@@ -55,6 +56,7 @@ export default function ClassCreate() {
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
   });
+
   return (
     <Box mx="xl" mt="md">
       <Text size="xl" fw="bold">
