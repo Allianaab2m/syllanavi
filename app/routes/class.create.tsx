@@ -1,6 +1,6 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Box, Text, TextInput } from "@mantine/core";
+import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
 import { json, type ActionFunctionArgs } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr } from "option-t/plain_result";
@@ -61,13 +61,16 @@ export default function ClassCreate() {
         新規授業作成
       </Text>
       <Form method="POST" {...getFormProps(form)}>
-        <TextInput
-          withAsterisk
-          disabled={state === "submitting"}
-          label="授業名"
-          error={name.errors}
-          {...getInputProps(name, { type: "text" })}
-        />
+        <Stack>
+          <TextInput
+            withAsterisk
+            disabled={state === "submitting"}
+            label="授業名"
+            error={name.errors}
+            {...getInputProps(name, { type: "text" })}
+          />
+          <Button type="submit">登録</Button>
+        </Stack>
       </Form>
     </Box>
   );
