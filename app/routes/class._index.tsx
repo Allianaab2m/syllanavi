@@ -1,9 +1,9 @@
 import { Box, Table, Text } from "@mantine/core";
 import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { Classes } from "~/db/repository/classes";
-import { db } from "~/db";
-import { isErr } from "option-t/plain_result";
 import { useLoaderData } from "@remix-run/react";
+import { isErr } from "option-t/plain_result";
+import { db } from "~/db";
+import { Classes } from "~/db/repository/classes";
 
 export async function loader({ context, request }: LoaderFunctionArgs) {
   const classes = await Classes(db(context)).getAll();
