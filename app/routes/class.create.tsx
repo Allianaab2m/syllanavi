@@ -5,6 +5,7 @@ import type { ActionFunctionArgs } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr } from "option-t/plain_result";
+import { useEffect } from "react";
 import { z } from "zod";
 import { db } from "~/db";
 import { Classes } from "~/db/repository/classes";
