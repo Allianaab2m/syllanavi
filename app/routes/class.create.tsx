@@ -2,7 +2,7 @@ import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
 import type { ActionFunctionArgs } from "@remix-run/cloudflare";
-import { json } from "@remix-run/cloudflare";
+import { json, redirect } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr } from "option-t/plain_result";
 import { z } from "zod";
@@ -38,11 +38,7 @@ export async function action({ context, request }: ActionFunctionArgs) {
     });
   }
 
-  return json({
-    success: true,
-    message: "OK",
-    submission: submission.reply(),
-  });
+  return redirect("/class");
 }
 
 export default function ClassCreate() {
