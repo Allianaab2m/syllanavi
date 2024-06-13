@@ -24,25 +24,26 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
 export default function ClassRoute() {
   const { data, error } = useLoaderData<typeof loader>();
 
-  const rows = data?.map((d) => (
-    <ClassTable id={d.id} name={d.name} key={d.id} />
-  ));
-  return data ? (
+  const rows = data?.map((d) => <ClassTable key={d.id} {...d} />);
+
+  return (
     <Box mx="xl" mt="md">
       <Text size="xl" fw="bold">
         授業一覧
       </Text>
-      <Table stickyHeader highlightOnHover>
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th>ID</Table.Th>
-            <Table.Th>授業名</Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
+      {data ? (
+        <Table stickyHeader highlightOnHover>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>ID</Table.Th>
+              <Table.Th>授業名</Table.Th>
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>{rows}</Table.Tbody>
+        </Table>
+      ) : (
+        <p>{error.message}</p>
+      )}
     </Box>
-  ) : (
-    <p>{error.message}</p>
   );
 }
