@@ -63,3 +63,11 @@ export const destroyUserSession =
       },
     });
   };
+
+export const checkAdmin = async (context: AppLoadContext, request: Request) => {
+  const userSession = await getUserSession(context)(request);
+  if (userSession.isAdmin) {
+    return true;
+  }
+  return false;
+};
