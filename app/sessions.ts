@@ -4,6 +4,7 @@ import { createCookieSessionStorage, redirect } from "@remix-run/cloudflare";
 type SessionData = {
   userId: string;
   userName?: string;
+  isAdmin: boolean;
 };
 
 const sessionStorage = (context: AppLoadContext) =>
@@ -20,10 +21,16 @@ const sessionStorage = (context: AppLoadContext) =>
 
 export const createUserSession =
   (context: AppLoadContext) =>
-  async (id: string, redirectPath: string, name?: string) => {
+  async (
+    id: string,
+    redirectPath: string,
+    name?: string,
+    isAdmin: boolean | null = false,
+  ) => {
     const session = await sessionStorage(context).getSession();
     session.set("userId", id);
     session.set("userName", name);
+    session.set("isAdmin", isAdmin ?? false);
     return redirect(redirectPath, {
       headers: {
         "Set-Cookie": await sessionStorage(context).commitSession(session),
@@ -40,6 +47,7 @@ export const getUserSession =
     return {
       userId: session.get("userId"),
       userName: session.get("userName"),
+      isAdmin: session.get("isAdmin"),
     };
   };
 
@@ -55,3 +63,11 @@ export const destroyUserSession =
       },
     });
   };
+
+export const checkAdmin = async (context: AppLoadContext, request: Request) => {
+  const userSession = await getUserSession(context)(request);
+  if (userSession.isAdmin) {
+    return true;
+  }
+  return false;
+};

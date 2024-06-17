@@ -1,13 +1,17 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { Button, Stack, TextInput, Title } from "@mantine/core";
-import type { ActionFunctionArgs } from "@remix-run/cloudflare";
+import type {
+  ActionFunctionArgs,
+  LoaderFunctionArgs,
+} from "@remix-run/cloudflare";
 import { json, redirect } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr } from "option-t/plain_result";
 import { z } from "zod";
 import { db } from "~/db";
 import { Classes } from "~/db/repository/classes";
+import { checkAdmin } from "~/sessions";
 
 const ClassCreateSchema = z.object({
   name: z.string({ required_error: "この項目は必須です" }),
@@ -38,6 +42,14 @@ export async function action({ context, request }: ActionFunctionArgs) {
     });
   }
 
+  return redirect("/class");
+}
+
+export async function loader({ context, request }: LoaderFunctionArgs) {
+  const isAdmin = await checkAdmin(context, request);
+  if (isAdmin) {
+    return null;
+  }
   return redirect("/class");
 }
 
