@@ -21,17 +21,22 @@ const sessionStorage = (context: AppLoadContext) =>
 
 export const createUserSession =
   (context: AppLoadContext) =>
-  async (id: string, redirectPath: string, name?: string, isAdmin = false) => {
-    const session = await sessionStorage(context).getSession();
-    session.set("userId", id);
-    session.set("userName", name);
-    session.set("isAdmin", isAdmin);
-    return redirect(redirectPath, {
-      headers: {
-        "Set-Cookie": await sessionStorage(context).commitSession(session),
-      },
-    });
-  };
+    async (
+      id: string,
+      redirectPath: string,
+      name?: string,
+      isAdmin: boolean | null = false,
+    ) => {
+      const session = await sessionStorage(context).getSession();
+      session.set("userId", id);
+      session.set("userName", name);
+      session.set("isAdmin", isAdmin ?? false);
+      return redirect(redirectPath, {
+        headers: {
+          "Set-Cookie": await sessionStorage(context).commitSession(session),
+        },
+      });
+    };
 
 export const getUserSession =
   (context: AppLoadContext) => async (request: Request) => {
