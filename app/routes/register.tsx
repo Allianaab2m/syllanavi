@@ -54,8 +54,6 @@ export async function action({ request, context }: ActionFunctionArgs) {
     password: hashedPassword,
   });
 
-  console.log(userCreateRes);
-
   if (isErr(userCreateRes)) {
     return json({
       success: false,

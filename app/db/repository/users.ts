@@ -22,6 +22,7 @@ export const Users = (db: DrizzleD1Database<typeof Schema>) => {
         )[0];
         return createOk(user);
       } catch (e) {
+        console.log(e);
         return wrapErr(e);
       }
     },
