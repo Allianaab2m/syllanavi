@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   integer,
   primaryKey,
@@ -17,3 +18,14 @@ export const takeClasses = sqliteTable(
     pk: primaryKey({ columns: [t.userId, t.classId] }),
   }),
 );
+
+export const takeClassesRelations = relations(takeClasses, ({ one }) => ({
+  userId: one(users, {
+    fields: [takeClasses.userId],
+    references: [users.id],
+  }),
+  classId: one(classes, {
+    fields: [takeClasses.classId],
+    references: [classes.id],
+  }),
+}));
