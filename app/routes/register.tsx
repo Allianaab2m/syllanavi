@@ -27,8 +27,6 @@ export async function action({ request, context }: ActionFunctionArgs) {
   const submission = parseWithZod(formData, { schema: RegisterSchema });
   const users = Users(db(context));
 
-  console.log(submission);
-
   if (submission.status !== "success") {
     return json({
       success: false,
