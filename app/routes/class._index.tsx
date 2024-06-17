@@ -27,7 +27,7 @@ export default function ClassRoute() {
   const rows = data?.map((d) => <ClassTable key={d.id} {...d} />);
 
   return (
-    <Box mx="xl" mt="md">
+    <>
       <Text size="xl" fw="bold">
         授業一覧
       </Text>
@@ -44,6 +44,6 @@ export default function ClassRoute() {
       ) : (
         <p>{error.message}</p>
       )}
-    </Box>
+    </>
   );
 }

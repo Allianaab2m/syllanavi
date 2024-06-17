@@ -1,4 +1,4 @@
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { Box, ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
 import {
@@ -49,7 +49,9 @@ export default function App() {
   return (
     <>
       <Header name={userName} />
-      <Outlet />
+      <Box mx="xl" mt="lg">
+        <Outlet />
+      </Box>
     </>
   );
 }

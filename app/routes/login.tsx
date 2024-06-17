@@ -98,7 +98,7 @@ export default function Login() {
     shouldRevalidate: "onInput",
   });
   return (
-    <Box mx="xl" mt="md">
+    <>
       <Alert
         mb="md"
         color="red"
@@ -131,6 +131,6 @@ export default function Login() {
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import { Box, Text } from "@mantine/core";
+import { Box, Text, Title } from "@mantine/core";
 import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { json, redirect } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
@@ -24,13 +24,13 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
 export default function MyPage() {
   const { user } = useLoaderData<typeof loader>();
   return user ? (
-    <Box mx="xl">
-      <Text fw="bold" size="xl">
+    <>
+      <Title fw="bold" size="xl">
         マイページ
-      </Text>
+      </Title>
       <Text>ID: {user.id}</Text>
       <Text>Name: {user.name}</Text>
-    </Box>
+    </>
   ) : (
     <></>
   );

@@ -54,7 +54,7 @@ export default function ClassCreate() {
   });
 
   return (
-    <Box mx="xl" mt="md">
+    <>
       <Text size="xl" fw="bold">
         新規授業作成
       </Text>
@@ -70,6 +70,6 @@ export default function ClassCreate() {
           <Button type="submit">登録</Button>
         </Stack>
       </Form>
-    </Box>
+    </>
   );
 }

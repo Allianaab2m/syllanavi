@@ -85,7 +85,7 @@ export default function Register() {
   });
 
   return (
-    <Box mx="xl" mt="lg">
+    <>
       <Text size="xl" fw="bold">
         新規登録
       </Text>
@@ -112,6 +112,6 @@ export default function Register() {
           </Button>
         </Stack>
       </Form>
-    </Box>
+    </>
   );
 }
