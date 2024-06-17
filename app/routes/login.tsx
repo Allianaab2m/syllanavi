@@ -58,7 +58,7 @@ export async function action({ context, request }: ActionFunctionArgs) {
     user.password &&
     (await checkPassword(submission.value.password, user.password))
   ) {
-    return await createUserSession(context)(user.id, redirectTo, user.name);
+    return await createUserSession(context)(user.id, redirectTo, user.name, user.isAdmin);
   }
 
   return json({
