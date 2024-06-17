@@ -1,6 +1,6 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Box, Button, Stack, Text, TextInput, Title } from "@mantine/core";
+import { Button, Stack, TextInput, Title } from "@mantine/core";
 import type { ActionFunctionArgs } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
@@ -26,6 +26,8 @@ export async function action({ request, context }: ActionFunctionArgs) {
   const formData = await request.formData();
   const submission = parseWithZod(formData, { schema: RegisterSchema });
   const users = Users(db(context));
+
+  console.log(submission);
 
   if (submission.status !== "success") {
     return json({
@@ -53,6 +55,8 @@ export async function action({ request, context }: ActionFunctionArgs) {
     name: submission.value.name,
     password: hashedPassword,
   });
+
+  console.log(userCreateRes);
 
   if (isErr(userCreateRes)) {
     return json({
