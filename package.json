@@ -7,7 +7,7 @@
     "build": "remix vite:build",
     "deploy": "bun run build && wrangler pages deploy",
     "dev": "remix vite:dev",
-    "lint": "biome check --apply .",
+    "lint": "biome check --write .",
     "check:lint": "biome check .",
     "format": "biome format --write .",
     "check:format": "biome format .",
