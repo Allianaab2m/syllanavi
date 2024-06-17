@@ -1,4 +1,4 @@
-import { Box, Table, Text } from "@mantine/core";
+import { Table, Title } from "@mantine/core";
 import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 import { isErr } from "option-t/plain_result";
@@ -28,9 +28,7 @@ export default function ClassRoute() {
 
   return (
     <>
-      <Text size="xl" fw="bold">
-        授業一覧
-      </Text>
+      <Title>授業一覧</Title>
       {data ? (
         <Table stickyHeader highlightOnHover>
           <Table.Thead>
