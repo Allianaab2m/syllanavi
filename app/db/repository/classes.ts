@@ -6,7 +6,7 @@ import type * as Schema from "~/db/schema";
 import { classes } from "~/db/schema";
 import { wrapErr } from "~/lib";
 
-type Class = InferSelectModel<typeof classes>;
+export type Class = InferSelectModel<typeof classes>;
 
 export const Classes = (db: DrizzleD1Database<typeof Schema>) => {
   return {

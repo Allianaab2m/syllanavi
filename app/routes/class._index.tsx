@@ -5,26 +5,33 @@ import { isErr } from "option-t/plain_result";
 import { ClassTable } from "~/components";
 import { db } from "~/db";
 import { Classes } from "~/db/repository/classes";
+import { getUserSession } from "~/sessions";
 
 export async function loader({ context, request }: LoaderFunctionArgs) {
   const classes = await Classes(db(context)).getAll();
+  const session = await getUserSession(context)(request);
+
   if (isErr(classes)) {
     return {
       data: null,
+      userId: session.userId,
       error: classes.err,
     };
   }
 
   return {
     data: classes.val,
+    userId: session.userId,
     error: null,
   };
 }
 
 export default function ClassRoute() {
-  const { data, error } = useLoaderData<typeof loader>();
+  const { data, error, userId } = useLoaderData<typeof loader>();
 
-  const rows = data?.map((d) => <ClassTable key={d.id} {...d} />);
+  const rows = data?.map((d) => (
+    <ClassTable key={d.id} userId={userId} {...d} />
+  ));
 
   return (
     <>
