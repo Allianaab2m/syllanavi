@@ -1,6 +1,6 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
+import { Button, Stack, TextInput, Title } from "@mantine/core";
 import type { ActionFunctionArgs } from "@remix-run/cloudflare";
 import { json, redirect } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
@@ -55,9 +55,7 @@ export default function ClassCreate() {
 
   return (
     <>
-      <Text size="xl" fw="bold">
-        新規授業作成
-      </Text>
+      <Title>新規授業作成</Title>
       <Form method="POST" {...getFormProps(form)}>
         <Stack>
           <TextInput

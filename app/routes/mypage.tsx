@@ -25,9 +25,7 @@ export default function MyPage() {
   const { user } = useLoaderData<typeof loader>();
   return user ? (
     <>
-      <Title fw="bold" size="xl">
-        マイページ
-      </Title>
+      <Title>マイページ</Title>
       <Text>ID: {user.id}</Text>
       <Text>Name: {user.name}</Text>
     </>

@@ -1,6 +1,6 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Alert, Box, Button, Stack, Text, TextInput } from "@mantine/core";
+import { Alert, Button, Stack, TextInput, Title } from "@mantine/core";
 import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
@@ -107,9 +107,7 @@ export default function Login() {
       >
         ログインしてください。
       </Alert>
-      <Text size="xl" fw="bold">
-        ログイン
-      </Text>
+      <Title>ログイン</Title>
       <Form method="POST" {...getFormProps(form)}>
         <Stack>
           <TextInput

@@ -1,6 +1,6 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Box, Button, Stack, Text, TextInput } from "@mantine/core";
+import { Box, Button, Stack, Text, TextInput, Title } from "@mantine/core";
 import type { ActionFunctionArgs } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
@@ -86,9 +86,7 @@ export default function Register() {
 
   return (
     <>
-      <Text size="xl" fw="bold">
-        新規登録
-      </Text>
+      <Title>新規登録</Title>
       <Form method="POST" {...getFormProps(form)}>
         <Stack>
           <TextInput
