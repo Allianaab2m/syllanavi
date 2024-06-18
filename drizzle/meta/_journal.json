@@ -8,6 +8,13 @@
       "when": 1717655584933,
       "tag": "0000_colossal_master_chief",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1718690918181,
+      "tag": "0001_greedy_master_chief",
+      "breakpoints": true
     }
   ]
 }

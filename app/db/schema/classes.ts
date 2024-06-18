@@ -5,6 +5,8 @@ import { takeClasses } from "./takeClasses";
 export const classes = sqliteTable("classes", {
   id: integer("id").primaryKey({ autoIncrement: true }).notNull(),
   name: text("name").notNull(),
+  departmentId: integer("department_id"),
+  categoryId: integer("category_id"),
 });
 
 export const classesRelations = relations(classes, ({ many }) => ({
