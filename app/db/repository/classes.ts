@@ -18,6 +18,8 @@ export const Classes = (db: DrizzleD1Database<typeof Schema>) => {
           await db.insert(classes).values(data).returning({
             id: classes.id,
             name: classes.name,
+            departmentId: classes.departmentId,
+            categoryId: classes.categoryId,
           })
         )[0];
         return createOk(cls);
