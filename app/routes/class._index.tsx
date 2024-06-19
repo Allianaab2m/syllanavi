@@ -42,6 +42,8 @@ export default function ClassRoute() {
             <Table.Tr>
               <Table.Th>ID</Table.Th>
               <Table.Th>授業名</Table.Th>
+              <Table.Th>学科</Table.Th>
+              <Table.Th>区分</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
