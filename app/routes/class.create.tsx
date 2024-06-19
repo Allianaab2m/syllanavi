@@ -5,7 +5,15 @@ import {
   useForm,
 } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { Button, Select, Stack, TextInput, Title } from "@mantine/core";
+import {
+  Button,
+  Flex,
+  NumberInput,
+  Select,
+  Stack,
+  TextInput,
+  Title,
+} from "@mantine/core";
 import type {
   ActionFunctionArgs,
   LoaderFunctionArgs,
@@ -13,22 +21,26 @@ import type {
 import { json, redirect } from "@remix-run/cloudflare";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { isErr } from "option-t/plain_result";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import { db } from "~/db";
 import { Classes } from "~/db/repository/classes";
-// import { checkAdmin } from "~/sessions";
-import departments from "~/departments.json";
-import { useEffect, useState } from "react";
 import {
   findCategoryByName,
   findDepartmentByName,
   type Category,
 } from "~/db/repository/departments";
+// import { checkAdmin } from "~/sessions";
+import departments from "~/departments.json";
 
 const ClassCreateSchema = z.object({
   name: z.string({ required_error: "この項目は必須です" }),
   department: z.string({ required_error: "この項目は必須です" }),
   category: z.string({ required_error: "この項目は必須です" }),
+  academicYear: z
+    .number({ required_error: "この項目は必須です" })
+    .min(1)
+    .max(4),
 });
 
 const departmentsData = departments.map((d) => d.name);
@@ -78,6 +90,7 @@ export async function action({ context, request }: ActionFunctionArgs) {
     name: submission.value.name,
     departmentId: department.id,
     categoryId: category.id,
+    academicYear: submission.value.academicYear,
   });
 
   if (isErr(createClass)) {
@@ -110,7 +123,8 @@ export default function ClassCreate() {
   const [selectedCategories, setSelectedCategories] = useState<
     Category[] | null
   >(null);
-  const [form, { name, department, category }] = useForm({
+
+  const [form, { name, department, category, academicYear }] = useForm({
     lastResult: data?.submission,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: ClassCreateSchema });
@@ -137,25 +151,47 @@ export default function ClassCreate() {
             error={name.errors}
             {...getInputProps(name, { type: "text" })}
           />
-          <Select
-            label="学科"
-            data={departmentsData}
-            {...getSelectProps(department)}
-            defaultValue=""
-            onChange={(e) => {
-              setSelectedDepartment(e);
-              form.update({
-                name: category.name,
-                value: "",
-              });
-            }}
-          />
-          <Select
-            label="区分"
-            data={selectedCategories?.map((c) => c.name)}
-            {...getSelectProps(category)}
-            defaultValue=""
-          />
+          <Flex>
+            <Select
+              withAsterisk
+              label="学科"
+              data={departmentsData}
+              error={department.errors}
+              {...getSelectProps(department)}
+              defaultValue=""
+              onChange={(e) => {
+                setSelectedDepartment(e);
+                form.update({
+                  name: category.name,
+                  value: "",
+                });
+              }}
+            />
+            <Select
+              withAsterisk
+              label="区分"
+              placeholder="先に学科を選択してください"
+              data={selectedCategories?.map((c) => c.name)}
+              error={category.errors}
+              {...getSelectProps(category)}
+              defaultValue=""
+            />
+            <NumberInput
+              key={academicYear.key}
+              id={academicYear.id}
+              name={academicYear.name}
+              form={academicYear.formId}
+              error={academicYear.errors}
+              aria-invalid={!academicYear.valid || undefined}
+              aria-describedby={
+                !academicYear.valid ? academicYear.errorId : undefined
+              }
+              label="開講年次"
+              suffix="年"
+              min={1}
+              max={4}
+            />
+          </Flex>
           <Button type="submit">登録</Button>
         </Stack>
       </Form>
