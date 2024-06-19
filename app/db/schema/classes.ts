@@ -12,6 +12,7 @@ export const classes = sqliteTable("classes", {
     .notNull(),
   term: integer("term", { mode: "number" }).default(0).notNull(),
   day: integer("day").default(0).notNull(),
+  unit: integer("unit").default(0).notNull(),
 });
 
 export const classesRelations = relations(classes, ({ many }) => ({

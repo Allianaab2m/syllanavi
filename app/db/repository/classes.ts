@@ -23,6 +23,7 @@ export const Classes = (db: DrizzleD1Database<typeof Schema>) => {
             academicYear: classes.academicYear,
             term: classes.term,
             day: classes.day,
+            unit: classes.unit,
           })
         )[0];
         return createOk(cls);
