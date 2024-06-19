@@ -1,0 +1,1 @@
+ALTER TABLE `classes` ADD `term` integer DEFAULT 0 NOT NULL;

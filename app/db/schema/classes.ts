@@ -10,6 +10,7 @@ export const classes = sqliteTable("classes", {
   academicYear: integer("academic_year", { mode: "number" })
     .default(0)
     .notNull(),
+  term: integer("term", { mode: "number" }).default(0).notNull(),
   day: integer("day").default(0).notNull(),
 });
 
