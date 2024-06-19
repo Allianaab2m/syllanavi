@@ -7,6 +7,9 @@ export const classes = sqliteTable("classes", {
   name: text("name").notNull(),
   departmentId: integer("department_id"),
   categoryId: integer("category_id"),
+  academicYear: integer("academic_year", { mode: "number" })
+    .default(0)
+    .notNull(),
 });
 
 export const classesRelations = relations(classes, ({ many }) => ({
