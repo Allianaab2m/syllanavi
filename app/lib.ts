@@ -8,6 +8,7 @@ export const wrapErr = (e: unknown) => {
 };
 
 export const Day = ["月", "火", "水", "木", "金", "土"] as const;
+export const Term = ["前期", "後期"] as const;
 
 export const serializeDay = (day: (typeof Day)[number]) => {
   return Day.findIndex((v) => v === day) + 1;
@@ -15,4 +16,12 @@ export const serializeDay = (day: (typeof Day)[number]) => {
 
 export const deserializeDay = (dayNumber: number) => {
   return Day.at(dayNumber);
+};
+
+export const serializeTerm = (term: (typeof Term)[number]) => {
+  return Term.findIndex((v) => v === term) + 1;
+};
+
+export const deserializeTerm = (termNumber: number) => {
+  return Term.at(termNumber);
 };
