@@ -32,6 +32,7 @@ import {
 } from "~/db/repository/departments";
 // import { checkAdmin } from "~/sessions";
 import departments from "~/departments.json";
+import { Day, serializeDay } from "~/lib";
 
 const ClassCreateSchema = z.object({
   name: z.string({ required_error: "この項目は必須です" }),
@@ -41,6 +42,7 @@ const ClassCreateSchema = z.object({
     .number({ required_error: "この項目は必須です" })
     .min(1)
     .max(4),
+  day: z.enum(Day),
 });
 
 const departmentsData = departments.map((d) => d.name);
@@ -91,6 +93,7 @@ export async function action({ context, request }: ActionFunctionArgs) {
     departmentId: department.id,
     categoryId: category.id,
     academicYear: submission.value.academicYear,
+    day: serializeDay(submission.value.day),
   });
 
   if (isErr(createClass)) {
