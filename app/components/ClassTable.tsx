@@ -24,7 +24,7 @@ export function ClassTable({ userId, class: cls }: Props) {
         <Table.Td>{department ? department.name : "未設定"}</Table.Td>
         <Table.Td>{category ? category.name : "未設定"}</Table.Td>
         <Table.Td>
-          {cls.day ? `${deserializeDay(cls.day)}曜日` : "未設定"}
+          {cls.day ? `${deserializeDay(cls.day)}曜${cls.startAt}限` : "未設定"}
         </Table.Td>
         <Table.Td>{cls.academicYear}年</Table.Td>
         <Table.Td>{cls.term ? deserializeTerm(cls.term) : "未設定"}</Table.Td>

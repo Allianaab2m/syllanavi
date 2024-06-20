@@ -7,10 +7,9 @@ import {
 import { parseWithZod } from "@conform-to/zod";
 import {
   Button,
-  Flex,
+  Group,
   NumberInput,
   Select,
-  Stack,
   TextInput,
   Title,
 } from "@mantine/core";
@@ -41,6 +40,8 @@ const ClassCreateSchema = z.object({
   term: z.enum(Term, { required_error: "この項目は必須です" }),
   day: z.enum(Day, { required_error: "この項目は必須です" }),
   unit: z.number({ required_error: "この項目は必須です" }).min(1),
+  startAt: z.number({ required_error: "この項目は必須です" }).min(1),
+  endAt: z.number().min(1).optional(),
 });
 
 const departmentsData = departments.map((d) => ({
@@ -69,6 +70,8 @@ export async function action({ context, request }: ActionFunctionArgs) {
     term: serializeTerm(submission.value.term),
     day: serializeDay(submission.value.day),
     unit: submission.value.unit,
+    startAt: submission.value.startAt,
+    endAt: submission.value.endAt,
   });
 
   if (isErr(createClass)) {
@@ -108,15 +111,27 @@ export default function ClassCreate() {
     Category[] | null
   >(null);
 
-  const [form, { name, department, category, academicYear, term, day, unit }] =
-    useForm({
-      lastResult: data?.submission,
-      onValidate({ formData }) {
-        return parseWithZod(formData, { schema: ClassCreateSchema });
-      },
-      shouldValidate: "onBlur",
-      shouldRevalidate: "onInput",
-    });
+  const [
+    form,
+    {
+      name,
+      department,
+      category,
+      academicYear,
+      term,
+      day,
+      unit,
+      startAt,
+      endAt,
+    },
+  ] = useForm({
+    lastResult: data?.submission,
+    onValidate({ formData }) {
+      return parseWithZod(formData, { schema: ClassCreateSchema });
+    },
+    shouldValidate: "onBlur",
+    shouldRevalidate: "onInput",
+  });
 
   useEffect(() => {
     const selected = findDepartmentByID(Number(selectedDepartment));
@@ -128,95 +143,120 @@ export default function ClassCreate() {
     <>
       <Title>新規授業作成</Title>
       <Form method="POST" {...getFormProps(form)}>
-        <Stack>
-          <TextInput
+        <TextInput
+          withAsterisk
+          disabled={state === "submitting"}
+          label="授業名"
+          error={name.errors}
+          {...getInputProps(name, { type: "text" })}
+        />
+        <Group grow>
+          <Select
+            withAsterisk
+            searchable
+            disabled={state === "submitting"}
+            label="学科"
+            data={departmentsData}
+            error={department.errors}
+            {...getSelectProps(department)}
+            defaultValue=""
+            onChange={(e) => {
+              setSelectedDepartment(e);
+              form.update({
+                name: category.name,
+                value: "",
+              });
+            }}
+          />
+          <Select
             withAsterisk
             disabled={state === "submitting"}
-            label="授業名"
-            error={name.errors}
-            {...getInputProps(name, { type: "text" })}
+            label="区分"
+            placeholder="先に学科を選択してください"
+            data={selectedCategories?.map((c) => ({
+              value: c.id.toString(),
+              label: c.name,
+            }))}
+            error={category.errors}
+            {...getSelectProps(category)}
+            defaultValue=""
           />
-          <Flex gap="md">
-            <Select
-              withAsterisk
-              searchable
-              disabled={state === "submitting"}
-              label="学科"
-              data={departmentsData}
-              error={department.errors}
-              {...getSelectProps(department)}
-              defaultValue=""
-              onChange={(e) => {
-                setSelectedDepartment(e);
-                form.update({
-                  name: category.name,
-                  value: "",
-                });
-              }}
-            />
-            <Select
-              withAsterisk
-              disabled={state === "submitting"}
-              label="区分"
-              placeholder="先に学科を選択してください"
-              data={selectedCategories?.map((c) => ({
-                value: c.id.toString(),
-                label: c.name,
-              }))}
-              error={category.errors}
-              {...getSelectProps(category)}
-              defaultValue=""
-            />
-            <NumberInput
-              withAsterisk
-              disabled={state === "submitting"}
-              key={academicYear.key}
-              id={academicYear.id}
-              name={academicYear.name}
-              form={academicYear.formId}
-              error={academicYear.errors}
-              aria-invalid={!academicYear.valid || undefined}
-              aria-describedby={
-                !academicYear.valid ? academicYear.errorId : undefined
-              }
-              label="開講年次"
-              min={1}
-              max={4}
-            />
-            <Select
-              withAsterisk
-              disabled={state === "submitting"}
-              label="学期"
-              data={Term}
-              error={term.errors}
-              {...getSelectProps(term)}
-              defaultValue=""
-            />
-            <Select
-              withAsterisk
-              disabled={state === "submitting"}
-              label="曜日"
-              data={Day}
-              error={day.errors}
-              {...getSelectProps(day)}
-              defaultValue=""
-            />
-            <NumberInput
-              withAsterisk
-              disabled={state === "submitting"}
-              key={unit.key}
-              id={unit.id}
-              name={unit.name}
-              form={unit.formId}
-              error={unit.errors}
-              aria-invalid={!unit.valid || undefined}
-              aria-describedby={!unit.valid ? unit.errorId : undefined}
-              label="単位数"
-              min={1}
-            />
-          </Flex>
-          <Button type="submit">登録</Button>
-        </Stack>
+        </Group>
+        <Group grow>
+          <NumberInput
+            withAsterisk
+            disabled={state === "submitting"}
+            key={academicYear.key}
+            id={academicYear.id}
+            name={academicYear.name}
+            form={academicYear.formId}
+            error={academicYear.errors}
+            aria-invalid={!academicYear.valid || undefined}
+            aria-describedby={
+              !academicYear.valid ? academicYear.errorId : undefined
+            }
+            label="開講年次"
+            min={1}
+            max={4}
+          />
+          <Select
+            withAsterisk
+            disabled={state === "submitting"}
+            label="学期"
+            data={Term}
+            error={term.errors}
+            {...getSelectProps(term)}
+            defaultValue=""
+          />
+          <Select
+            withAsterisk
+            disabled={state === "submitting"}
+            label="曜日"
+            data={Day}
+            error={day.errors}
+            {...getSelectProps(day)}
+            defaultValue=""
+          />
+          <NumberInput
+            withAsterisk
+            disabled={state === "submitting"}
+            key={startAt.key}
+            id={startAt.id}
+            name={startAt.name}
+            form={startAt.formId}
+            error={startAt.errors}
+            aria-invalid={!startAt.valid || undefined}
+            aria-describedby={!startAt.valid ? startAt.errorId : undefined}
+            label="開始時間"
+            min={1}
+          />
+          <NumberInput
+            disabled={state === "submitting"}
+            key={endAt.key}
+            id={endAt.id}
+            name={endAt.name}
+            form={endAt.formId}
+            error={endAt.errors}
+            aria-invalid={!endAt.valid || undefined}
+            aria-describedby={!endAt.valid ? endAt.errorId : undefined}
+            label="終了時間"
+            min={1}
+          />
+          <NumberInput
+            withAsterisk
+            disabled={state === "submitting"}
+            key={unit.key}
+            id={unit.id}
+            name={unit.name}
+            form={unit.formId}
+            error={unit.errors}
+            aria-invalid={!unit.valid || undefined}
+            aria-describedby={!unit.valid ? unit.errorId : undefined}
+            label="単位数"
+            min={1}
+          />
+        </Group>
+        <Button type="submit">登録</Button>
       </Form>
     </>
   );
