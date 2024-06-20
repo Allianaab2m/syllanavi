@@ -25,27 +25,28 @@ import { useEffect, useState } from "react";
 import { z } from "zod";
 import { db } from "~/db";
 import { Classes } from "~/db/repository/classes";
-import {
-  findCategoryByName,
-  findDepartmentByName,
-  type Category,
-} from "~/db/repository/departments";
+import { findDepartmentByID, type Category } from "~/db/repository/departments";
 // import { checkAdmin } from "~/sessions";
 import departments from "~/departments.json";
-import { Day, serializeDay } from "~/lib";
+import { Day, Term, serializeDay, serializeTerm } from "~/lib";
 
 const ClassCreateSchema = z.object({
   name: z.string({ required_error: "この項目は必須です" }),
-  department: z.string({ required_error: "この項目は必須です" }),
-  category: z.string({ required_error: "この項目は必須です" }),
+  department: z.number({ required_error: "この項目は必須です" }),
+  category: z.number({ required_error: "この項目は必須です" }),
   academicYear: z
     .number({ required_error: "この項目は必須です" })
     .min(1)
     .max(4),
-  day: z.enum(Day),
+  term: z.enum(Term, { required_error: "この項目は必須です" }),
+  day: z.enum(Day, { required_error: "この項目は必須です" }),
+  unit: z.number({ required_error: "この項目は必須です" }).min(1),
 });
 
-const departmentsData = departments.map((d) => d.name);
+const departmentsData = departments.map((d) => ({
+  value: d.id.toString(),
+  label: d.name,
+}));
 
 export async function action({ context, request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -60,40 +61,14 @@ export async function action({ context, request }: ActionFunctionArgs) {
     });
   }
 
-  const department = findDepartmentByName(submission.value.department);
-
-  if (!department) {
-    return json({
-      success: false,
-      message: "Department not found",
-      submission: submission.reply({
-        fieldErrors: {
-          department: ["存在しない学科です"],
-        },
-      }),
-    });
-  }
-
-  const category = findCategoryByName(department, submission.value.category);
-
-  if (!category) {
-    return json({
-      success: false,
-      message: "Category not found",
-      submission: submission.reply({
-        fieldErrors: {
-          category: ["存在しない区分です"],
-        },
-      }),
-    });
-  }
-
   const createClass = await classes.create({
     name: submission.value.name,
-    departmentId: department.id,
-    categoryId: category.id,
+    departmentId: submission.value.department,
+    categoryId: submission.value.category,
     academicYear: submission.value.academicYear,
+    term: serializeTerm(submission.value.term),
     day: serializeDay(submission.value.day),
+    unit: submission.value.unit,
   });
 
   if (isErr(createClass)) {
@@ -105,6 +80,12 @@ export async function action({ context, request }: ActionFunctionArgs) {
       }),
     });
   }
+
+  console.log({
+    ...submission.value,
+    term: serializeTerm(submission.value.term),
+    day: serializeDay(submission.value.day),
+  });
 
   return redirect("/class");
 }
@@ -127,17 +108,18 @@ export default function ClassCreate() {
     Category[] | null
   >(null);
 
-  const [form, { name, department, category, academicYear }] = useForm({
-    lastResult: data?.submission,
-    onValidate({ formData }) {
-      return parseWithZod(formData, { schema: ClassCreateSchema });
-    },
-    shouldValidate: "onBlur",
-    shouldRevalidate: "onInput",
-  });
+  const [form, { name, department, category, academicYear, term, day, unit }] =
+    useForm({
+      lastResult: data?.submission,
+      onValidate({ formData }) {
+        return parseWithZod(formData, { schema: ClassCreateSchema });
+      },
+      shouldValidate: "onBlur",
+      shouldRevalidate: "onInput",
+    });
 
   useEffect(() => {
-    const selected = findDepartmentByName(selectedDepartment ?? "");
+    const selected = findDepartmentByID(Number(selectedDepartment));
 
     setSelectedCategories(selected ? selected.categories : []);
   }, [selectedDepartment]);
@@ -154,9 +136,11 @@ export default function ClassCreate() {
             error={name.errors}
             {...getInputProps(name, { type: "text" })}
           />
-          <Flex>
+          <Flex gap="md">
             <Select
               withAsterisk
+              searchable
+              disabled={state === "submitting"}
               label="学科"
               data={departmentsData}
               error={department.errors}
@@ -172,14 +156,20 @@ export default function ClassCreate() {
             />
             <Select
               withAsterisk
+              disabled={state === "submitting"}
               label="区分"
               placeholder="先に学科を選択してください"
-              data={selectedCategories?.map((c) => c.name)}
+              data={selectedCategories?.map((c) => ({
+                value: c.id.toString(),
+                label: c.name,
+              }))}
               error={category.errors}
               {...getSelectProps(category)}
               defaultValue=""
             />
             <NumberInput
+              withAsterisk
+              disabled={state === "submitting"}
               key={academicYear.key}
               id={academicYear.id}
               name={academicYear.name}
@@ -190,9 +180,39 @@ export default function ClassCreate() {
                 !academicYear.valid ? academicYear.errorId : undefined
               }
               label="開講年次"
-              suffix="年"
               min={1}
               max={4}
+            />
+            <Select
+              withAsterisk
+              disabled={state === "submitting"}
+              label="学期"
+              data={Term}
+              error={term.errors}
+              {...getSelectProps(term)}
+              defaultValue=""
+            />
+            <Select
+              withAsterisk
+              disabled={state === "submitting"}
+              label="曜日"
+              data={Day}
+              error={day.errors}
+              {...getSelectProps(day)}
+              defaultValue=""
+            />
+            <NumberInput
+              withAsterisk
+              disabled={state === "submitting"}
+              key={unit.key}
+              id={unit.id}
+              name={unit.name}
+              form={unit.formId}
+              error={unit.errors}
+              aria-invalid={!unit.valid || undefined}
+              aria-describedby={!unit.valid ? unit.errorId : undefined}
+              label="単位数"
+              min={1}
             />
           </Flex>
           <Button type="submit">登録</Button>

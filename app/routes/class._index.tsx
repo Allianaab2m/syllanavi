@@ -26,11 +26,28 @@ export async function loader({ context, request }: LoaderFunctionArgs) {
   };
 }
 
+function ClassTableHeader() {
+  return (
+    <Table.Thead>
+      <Table.Tr>
+        <Table.Th>ID</Table.Th>
+        <Table.Th>授業名</Table.Th>
+        <Table.Th>学科</Table.Th>
+        <Table.Th>区分</Table.Th>
+        <Table.Th>曜日</Table.Th>
+        <Table.Th>開講年次</Table.Th>
+        <Table.Th>学期</Table.Th>
+        <Table.Th>単位数</Table.Th>
+      </Table.Tr>
+    </Table.Thead>
+  );
+}
+
 export default function ClassRoute() {
   const { data, error, userId } = useLoaderData<typeof loader>();
 
   const rows = data?.map((d) => (
-    <ClassTable key={d.id} userId={userId} {...d} />
+    <ClassTable key={d.id} userId={userId} class={d} />
   ));
 
   return (
@@ -38,14 +55,7 @@ export default function ClassRoute() {
       <Title>授業一覧</Title>
       {data ? (
         <Table stickyHeader highlightOnHover>
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>ID</Table.Th>
-              <Table.Th>授業名</Table.Th>
-              <Table.Th>学科</Table.Th>
-              <Table.Th>区分</Table.Th>
-            </Table.Tr>
-          </Table.Thead>
+          <ClassTableHeader />
           <Table.Tbody>{rows}</Table.Tbody>
         </Table>
       ) : (

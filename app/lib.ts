@@ -15,7 +15,7 @@ export const serializeDay = (day: (typeof Day)[number]) => {
 };
 
 export const deserializeDay = (dayNumber: number) => {
-  return Day.at(dayNumber);
+  return Day[dayNumber - 1];
 };
 
 export const serializeTerm = (term: (typeof Term)[number]) => {
@@ -23,5 +23,5 @@ export const serializeTerm = (term: (typeof Term)[number]) => {
 };
 
 export const deserializeTerm = (termNumber: number) => {
-  return Term.at(termNumber);
+  return Term[termNumber - 1];
 };
