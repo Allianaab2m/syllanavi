@@ -6,7 +6,6 @@ import type React from "react";
 import { useMemo, useState } from "react";
 import { Search } from "tabler-icons-react";
 import { ClassTable } from "~/components";
-import { Th } from "~/components";
 import { db } from "~/db";
 import { type Class, Classes } from "~/db/repository/classes";
 import { getUserSession } from "~/sessions";
