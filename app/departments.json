@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "name": "全学共通",
+    "shortenName": "全学",
+    "tag": "A",
+    "categories": [{ "id": 0, "name": "基礎ゼミ・キャリアデザイン" }]
+  },
+  {
+    "id": 11,
+    "name": "全学共通 アカデミックスキル",
+    "shortenName": "アカスキ",
+    "tag": "A-Acad",
+    "categories": [
+      { "id": 0, "name": "統計・情報" },
+      { "id": 1, "name": "英語コア" },
+      { "id": 2, "name": "選択英語" },
+      { "id": 3, "name": "第二外国語" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "全学共通 教養科目",
+    "shortenName": "教養",
+    "tag": "A-Edu",
+    "categories": [
+      { "id": 0, "name": "人と文化" },
+      { "id": 1, "name": "人と社会" },
+      { "id": 2, "name": "人と自然" },
+      { "id": 3, "name": "人と健康" }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "全学共通 県大特色科目",
+    "shortenName": "県大",
+    "tag": "A-UoH",
+    "categories": [
+      { "id": 0, "name": "地域課題" },
+      { "id": 1, "name": "グローバル" },
+      { "id": 2, "name": "防災教育" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "工学部 電気電子情報工学科",
+    "shortenName": "電電",
+    "tag": "L",
+    "categories": [
+      { "id": 0, "name": "必修" },
+      { "id": 1, "name": "選択Ⅰ" },
+      { "id": 2, "name": "選択Ⅱ" },
+      { "id": 3, "name": "選択Ⅲ" }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "工学部 電気電子情報工学科 電気工学コース",
+    "shortenName": "電気",
+    "tag": "L-Elec",
+    "categories": [{ "id": 0, "name": "選択Ⅳ" }]
+  },
+  {
+    "id": 22,
+    "name": "工学部 電気電子情報工学科 情報工学コース",
+    "shortenName": "情報",
+    "tag": "L-Info",
+    "categories": [{ "id": 0, "name": "選択Ⅳ" }]
+  },
+  {
+    "id": 3,
+    "name": "工学部 機械材料工学科",
+    "shortenName": "機材",
+    "tag": "K",
+    "categories": [
+      { "id": 0, "name": "必修" },
+      { "id": 1, "name": "選択Ⅰ" },
+      { "id": 2, "name": "選択Ⅱ" },
+      { "id": 3, "name": "工学関連" }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "工学部 機械材料工学科 機械工学コース",
+    "shortenName": "機械",
+    "tag": "K-Mech",
+    "categories": [
+      { "id": 0, "name": "必修" },
+      { "id": 1, "name": "選択Ⅰ" },
+      { "id": 2, "name": "選択Ⅱ" },
+      { "id": 3, "name": "材料基礎" }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "工学部 機械材料工学科 材料工学コース",
+    "shortenName": "材料",
+    "tag": "K-Mate",
+    "categories": [
+      { "id": 0, "name": "必修" },
+      { "id": 1, "name": "選択" },
+      { "id": 3, "name": "機械基礎" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "工学部 応用化学工学科",
+    "shortenName": "応化",
+    "tag": "O",
+    "categories": [
+      { "id": 0, "name": "必修" },
+      { "id": 1, "name": "選択Ⅰ" },
+      { "id": 2, "name": "選択Ⅱ" }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "工学部 応用化学工学科 応用化学コース",
+    "shortenName": "応用",
+    "tag": "O-Appl",
+    "categories": [{ "id": 0, "name": "必修" }, { "id": 1, "name": "選択Ⅲ" }]
+  },
+  {
+    "id": 42,
+    "name": "工学部 応用化学工学科 化学工学コース",
+    "shortenName": "化工",
+    "tag": "O-Eng",
+    "categories": [{ "id": 0, "name": "必修" }, { "id": 1, "name": "選択Ⅲ" }]
+  }
+]

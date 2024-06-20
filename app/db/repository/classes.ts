@@ -14,12 +14,7 @@ export const Classes = (db: DrizzleD1Database<typeof Schema>) => {
       data: InferInsertModel<typeof classes>,
     ): Promise<Result<Class, Error>> {
       try {
-        const cls = (
-          await db.insert(classes).values(data).returning({
-            id: classes.id,
-            name: classes.name,
-          })
-        )[0];
+        const cls = (await db.insert(classes).values(data).returning())[0];
         return createOk(cls);
       } catch (e) {
         return wrapErr(e);

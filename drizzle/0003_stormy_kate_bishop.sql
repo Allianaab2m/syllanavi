@@ -1,0 +1,1 @@
+ALTER TABLE `classes` ADD `day` integer DEFAULT 0 NOT NULL;
