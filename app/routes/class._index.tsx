@@ -16,7 +16,7 @@ import { Search } from "tabler-icons-react";
 import { ClassTable, ClassTableHeader, filterData } from "~/components";
 import { db } from "~/db";
 import { Classes } from "~/db/repository/classes";
-import { findDepartmentByID, type Category } from "~/db/repository/departments";
+import { type Category, findDepartmentByID } from "~/db/repository/departments";
 import departments from "~/departments.json";
 import { Day, serializeDay, serializeTerm } from "~/lib";
 import { getUserSession } from "~/sessions";

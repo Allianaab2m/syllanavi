@@ -4,9 +4,7 @@
     "name": "全学共通",
     "shortenName": "全学",
     "tag": "A",
-    "categories": [
-      { "id": 0, "name": "基礎ゼミ・キャリアデザイン" }
-    ]
+    "categories": [{ "id": 0, "name": "基礎ゼミ・キャリアデザイン" }]
   },
   {
     "id": 11,
@@ -120,19 +118,13 @@
     "name": "工学部 応用化学工学科 応用化学コース",
     "shortenName": "応用",
     "tag": "O-Appl",
-    "categories": [
-      { "id": 0, "name": "必修" },
-      { "id": 1, "name": "選択Ⅲ" }
-    ]
+    "categories": [{ "id": 0, "name": "必修" }, { "id": 1, "name": "選択Ⅲ" }]
   },
   {
     "id": 42,
     "name": "工学部 応用化学工学科 化学工学コース",
     "shortenName": "化工",
     "tag": "O-Eng",
-    "categories": [
-      { "id": 0, "name": "必修" },
-      { "id": 1, "name": "選択Ⅲ" }
-    ]
+    "categories": [{ "id": 0, "name": "必修" }, { "id": 1, "name": "選択Ⅲ" }]
   }
 ]

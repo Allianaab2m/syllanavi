@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
 import { z } from "zod";
 import { db } from "~/db";
 import { Classes } from "~/db/repository/classes";
-import { findDepartmentByID, type Category } from "~/db/repository/departments";
+import { type Category, findDepartmentByID } from "~/db/repository/departments";
 // import { checkAdmin } from "~/sessions";
 import departments from "~/departments.json";
 import { Day, Term, serializeDay, serializeTerm } from "~/lib";
