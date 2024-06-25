@@ -89,7 +89,7 @@ export function ClassTableHeader() {
   );
 }
 
-function ClassDetailModal({
+export function ClassDetailModal({
   userId,
   class: cls,
   opened,

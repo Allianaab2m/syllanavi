@@ -135,7 +135,6 @@ export default function ClassRoute() {
           onChange={handleDepartmentChange}
         />
         <Select
-          withAsterisk
           placeholder="区分"
           data={categories?.map((c) => ({
             value: c.id.toString(),
