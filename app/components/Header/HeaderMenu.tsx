@@ -1,5 +1,5 @@
-import { ActionIcon, Button, Flex, Text } from "@mantine/core";
-import { Menu2 } from "tabler-icons-react";
+import { ActionIcon, Button, Flex, Text, rem } from "@mantine/core";
+import { Id, Login, Menu2 } from "tabler-icons-react";
 import { LogoutButton } from "../LogoutButton";
 import { HeaderDrawer } from "./HeaderDrawer";
 
@@ -28,7 +28,12 @@ export function HeaderMenu({ opened, onOpen, onClose, name }: Props) {
           </>
         ) : (
           <>
-            <Button color="teal.6" component="a" href="/register">
+            <Button
+              color="teal.6"
+              component="a"
+              href="/register"
+              rightSection={<Id style={{ width: rem(16), height: rem(16) }} />}
+            >
               新規登録
             </Button>
             <Button
@@ -36,6 +41,9 @@ export function HeaderMenu({ opened, onOpen, onClose, name }: Props) {
               variant="outline"
               component="a"
               href="/login"
+              rightSection={
+                <Login style={{ width: rem(16), height: rem(16) }} />
+              }
             >
               ログイン
             </Button>

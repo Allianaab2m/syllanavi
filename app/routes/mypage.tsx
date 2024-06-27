@@ -1,4 +1,4 @@
-import { Center, Group, Select, Table, Title } from "@mantine/core";
+import { Center, Group, Select, Table, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { json, redirect } from "@remix-run/cloudflare";
@@ -125,8 +125,8 @@ export default function MyPage() {
 
   const [filteredData, setFilteredData] = useState(classes);
   const [filter, setFilter] = useState<Filter>({
-    academicYear: null,
-    term: null,
+    academicYear: "1",
+    term: "1",
   });
   const timetableData = Timetable(filteredData);
 
@@ -161,35 +161,43 @@ export default function MyPage() {
             value: v,
             label: `${v}年`,
           }))}
+          defaultValue={"1"}
           onChange={handleAcademicYearChange}
+          allowDeselect={false}
         />
         <Select
           placeholder="学期"
           data={["前期", "後期"]}
+          defaultValue={"前期"}
           onChange={handleTermChange}
+          allowDeselect={false}
         />
       </Group>
-      {filteredData ? (
-        <Table
-          withColumnBorders
-          verticalSpacing="lg"
-          layout="fixed"
-          withTableBorder
-        >
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th w={50}>時限</Table.Th>
-              {Day.map((v) => (
-                <Table.Th key={v}>
-                  <Center>{v}</Center>
-                </Table.Th>
-              ))}
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>{timetableData}</Table.Tbody>
-        </Table>
+      {filter.academicYear !== null && filter.term !== null ? (
+        filteredData ? (
+          <Table
+            withColumnBorders
+            verticalSpacing="lg"
+            layout="fixed"
+            withTableBorder
+          >
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th w={50}>時限</Table.Th>
+                {Day.map((v) => (
+                  <Table.Th key={v}>
+                    <Center>{v}</Center>
+                  </Table.Th>
+                ))}
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>{timetableData}</Table.Tbody>
+          </Table>
+        ) : (
+          <></>
+        )
       ) : (
-        <></>
+        <Text>年度・学期を選択してください</Text>
       )}
     </>
   );

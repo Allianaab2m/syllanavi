@@ -1,6 +1,7 @@
-import { Button, Flex, Modal, Text } from "@mantine/core";
+import { Button, Flex, Modal, Text, rem } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Form } from "@remix-run/react";
+import { Logout } from "tabler-icons-react";
 
 export function LogoutButton() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -29,7 +30,11 @@ export function LogoutButton() {
           </Button>
         </Flex>
       </Modal>
-      <Button color="teal.6" onClick={open}>
+      <Button
+        color="teal.6"
+        onClick={open}
+        rightSection={<Logout style={{ width: rem(16), height: rem(16) }} />}
+      >
         ログアウト
       </Button>
     </>

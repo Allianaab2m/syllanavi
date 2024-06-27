@@ -11,7 +11,9 @@ export function HeaderDrawer(props: Props) {
     <Drawer {...props} position="right">
       {props.name ? (
         <Stack>
-          <Text>{props.name}としてログイン中</Text>
+          <Text component="a" href="/mypage">
+            {props.name}としてログイン中
+          </Text>
           <LogoutButton />
         </Stack>
       ) : (
