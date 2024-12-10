@@ -1,29 +1,26 @@
-import { Box, ColorSchemeScript, MantineProvider } from "@mantine/core";
-import "@mantine/core/styles.css";
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
+import type { LinksFunction } from "@remix-run/cloudflare";
 import {
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  json,
-  useLoaderData,
 } from "@remix-run/react";
-import { Header } from "./components";
-import { getUserSession } from "./sessions";
 
-export async function loader({ context, request }: LoaderFunctionArgs) {
-  const session = await getUserSession(context)(request);
+import "./tailwind.css";
 
-  return json({
-    userName: session.userName,
-  });
-}
-
-export const meta: MetaFunction = () => {
-  return [{ title: "Syllanavi" }];
-};
+export const links: LinksFunction = () => [
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+  },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,10 +30,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -45,13 +41,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const { userName } = useLoaderData<typeof loader>();
-  return (
-    <>
-      <Header name={userName} />
-      <Box mx="xl" mt="lg">
-        <Outlet />
-      </Box>
-    </>
-  );
+  return <Outlet />;
 }

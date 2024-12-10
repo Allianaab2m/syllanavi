@@ -1,20 +1,11 @@
-# Welcome to Remix + Vite!
+# Welcome to Remix + Cloudflare!
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
-
-## Typegen
-
-Generate types for your Cloudflare bindings in `wrangler.toml`:
-
-```sh
-npm run typegen
-```
-
-You will need to rerun typegen whenever you make changes to `wrangler.toml`.
+- 📖 [Remix docs](https://remix.run/docs)
+- 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
 
 ## Development
 
-Run the Vite dev server:
+Run the dev server:
 
 ```sh
 npm run dev
@@ -27,11 +18,17 @@ npm run build
 npm run start
 ```
 
-## Deployment
+## Typegen
 
-> [!WARNING]  
-> Cloudflare does _not_ use `wrangler.toml` to configure deployment bindings.
-> You **MUST** [configure deployment bindings manually in the Cloudflare dashboard][bindings].
+Generate types for your Cloudflare bindings in `wrangler.toml`:
+
+```sh
+npm run typegen
+```
+
+You will need to rerun typegen whenever you make changes to `wrangler.toml`.
+
+## Deployment
 
 First, build your app for production:
 
@@ -45,4 +42,6 @@ Then, deploy your app to Cloudflare Pages:
 npm run deploy
 ```
 
-[bindings]: https://developers.cloudflare.com/pages/functions/bindings/
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
