@@ -9,7 +9,7 @@
     "dev": "remix vite:dev",
     "check:format": "biome format",
     "check:lint": "biome lint",
-    "format": "biome format --write",
+    "format": "biome check --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true --write",
     "lint": "biome lint --write",
     "start": "wrangler pages dev ./build/client",
     "typecheck": "tsc",

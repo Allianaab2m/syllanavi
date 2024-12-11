@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm"
-import { expect, describe, it } from "vitest"
 import { posts } from "server/schema"
-import { PostsRepository } from "./posts"
 import { testDB } from "server/test/db"
+import { describe, expect, it } from "vitest"
+import { PostsRepository } from "./posts"
 
 const repository = PostsRepository(testDB)
 

@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm"
-import { int, sqliteTable, text } from "drizzle-orm/sqlite-core"
 import { drizzle } from "drizzle-orm/d1"
+import { int, sqliteTable, text } from "drizzle-orm/sqlite-core"
 
 export const posts = sqliteTable("posts", {
   id: int("id").primaryKey({ autoIncrement: true }),
