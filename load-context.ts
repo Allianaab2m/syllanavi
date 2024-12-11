@@ -1,5 +1,5 @@
-import type { Context } from "hono";
-import type { PlatformProxy } from "wrangler";
+import type { Context } from "hono"
+import type { PlatformProxy } from "wrangler"
 
 type GetLoadContextArgs = {
   request: Request
@@ -9,7 +9,7 @@ type GetLoadContextArgs = {
       cf: Request["cf"]
     }
     hono: {
-      context: Context;
+      context: Context
     }
   }
 }
@@ -19,7 +19,7 @@ declare module "@remix-run/cloudflare" {
     // This will merge the result of `getLoadContext` into the `AppLoadContext`
     extra: string
     hono: {
-      context: Context;
+      context: Context
     }
   }
 }
@@ -28,5 +28,5 @@ export function getLoadContext({ context }: GetLoadContextArgs) {
   return {
     ...context,
     extra: "stuff",
-  };
+  }
 }
