@@ -14,20 +14,28 @@
     "start": "wrangler pages dev ./build/client",
     "typecheck": "tsc",
     "typegen": "wrangler types --experimental-include-runtime",
+    "test": "vitest",
+    "migrate:generate": "drizzle-kit generate",
+    "migrate:apply:local": "wrangler d1 migrations apply syllanavi-v2-d1 --local",
+    "migrate:apply": "wrangler d1 migrations apply syllanavi-v2-d1",
     "postinstall": "lefthook install"
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.4.1",
     "@remix-run/cloudflare": "^2.15.1",
     "@remix-run/cloudflare-pages": "^2.15.1",
     "@remix-run/react": "^2.15.1",
+    "drizzle-orm": "^0.38.0",
     "hono": "^4.6.13",
     "hono-remix-adapter": "^0.5.4",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@cloudflare/vitest-pool-workers": "^0.5.36",
     "@cloudflare/workers-types": "^4.20240512.0",
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
@@ -36,12 +44,14 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "autoprefixer": "^10.4.19",
+    "drizzle-kit": "^0.30.0",
     "lefthook": "^1.9.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "2.0.5",
     "wrangler": "^3.57.1"
   },
   "engines": {

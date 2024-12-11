@@ -1,0 +1,16 @@
+name: Code test
+
+on:
+  push:
+  pull_request:
+    
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:            
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run test
+        run: pnpm test

@@ -3,3 +3,9 @@ name = "syllanavi"
 compatibility_date = "2024-12-05"
 main = "./worker.ts"
 assets = { directory = "./build/client" }
+
+[[d1_databases]]
+binding = "DB"
+database_name = "syllanavi-v2-d1"
+database_id = "ea7c2813-e946-4ce0-bf3c-fdfc951e67c2"
+migrations_dir = "./drizzle/migrations"
