@@ -1,6 +1,9 @@
-import ClassRoute, { loader as ClassLoader } from "./class._index";
+import type { MetaFunction } from "@remix-run/cloudflare"
 
-export const loader = ClassLoader;
+export const meta: MetaFunction = () => {
+  return [{ title: "Syllanavi" }]
+}
+
 export default function Index() {
-  return <ClassRoute />;
+  return <div>Syllanavi</div>
 }

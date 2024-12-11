@@ -1,0 +1,15 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome-lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: pnpm check:lint
+      stage_fixed: true
+    biome-format:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: pnpm check:format
+      stage_fixed: true
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm commitlint -e
