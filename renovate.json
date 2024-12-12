@@ -10,6 +10,7 @@
   ],
   "automerge": true,
   "platformAutomerge": false,
+  "prHourlyLimit": 0,
   "assignees": [
     "@Allianaab2m"
   ],
