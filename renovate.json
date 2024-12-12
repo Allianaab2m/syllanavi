@@ -1,13 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "timezone": "Asia/Tokyo",
-  "schedule": ["after 10pm and before 5am every day"],
+  "schedule": [
+    "after 10pm",
+    "before 5am"
+  ],
   "automerge": true,
   "platformAutomerge": false,
-  "assignees": ["@Allianaab2m"],
+  "assignees": [
+    "@Allianaab2m"
+  ],
   "configMigration": true,
   "lockFileMaintenance": {
     "enabled": true
@@ -18,7 +23,9 @@
       "groupName": "dependencies(patch)"
     },
     {
-      "matchManagers": ["npm"],
+      "matchManagers": [
+        "npm"
+      ],
       "rangeStrategy": "pin"
     },
     {
