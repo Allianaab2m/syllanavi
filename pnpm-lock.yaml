@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@hono/zod-validator':
-        specifier: 0.4.1
-        version: 0.4.1(hono@4.6.13)(zod@3.24.1)
+        specifier: 0.4.2
+        version: 0.4.2(hono@4.6.13)(zod@3.24.1)
       '@remix-run/cloudflare':
         specifier: 2.15.1
         version: 2.15.1(@cloudflare/workers-types@4.20241205.0)(typescript@5.7.2)
@@ -21,8 +21,8 @@ importers:
         specifier: 2.15.1
         version: 2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)
       drizzle-orm:
-        specifier: 0.38.1
-        version: 0.38.1(@cloudflare/workers-types@4.20241205.0)(@types/react@19.0.1)(react@19.0.0)
+        specifier: 0.38.2
+        version: 0.38.2(@cloudflare/workers-types@4.20241205.0)(@types/react@19.0.1)(react@19.0.0)
       hono:
         specifier: 4.6.13
         version: 4.6.13
@@ -73,8 +73,8 @@ importers:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.49)
       drizzle-kit:
-        specifier: 0.30.0
-        version: 0.30.0
+        specifier: 0.30.1
+        version: 0.30.1
       lefthook:
         specifier: 1.9.2
         version: 1.9.2
@@ -1285,8 +1285,8 @@ packages:
       wrangler:
         optional: true
 
-  '@hono/zod-validator@0.4.1':
-    resolution: {integrity: sha512-I8LyfeJfvVmC5hPjZ2Iij7RjexlgSBT7QJudZ4JvNPLxn0JQ3sqclz2zydlwISAnw21D2n4LQ0nfZdoiv9fQQA==}
+  '@hono/zod-validator@0.4.2':
+    resolution: {integrity: sha512-1rrlBg+EpDPhzOV4hT9pxr5+xDVmKuz6YJl+la7VCwK6ass5ldyKm5fD+umJdV2zhHD6jROoCCv8NbTwyfhT0g==}
     peerDependencies:
       hono: '>=3.9.0'
       zod: ^3.19.1
@@ -2071,12 +2071,12 @@ packages:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
 
-  drizzle-kit@0.30.0:
-    resolution: {integrity: sha512-zAf0qg/BX2lV/Xip4igXrtbDv+Ub8S39U6qSOEGNvqcHrnmaQjS4mkkFZOUsgXRbuH56QUeWZxfnLHefrKCV5g==}
+  drizzle-kit@0.30.1:
+    resolution: {integrity: sha512-HmA/NeewvHywhJ2ENXD3KvOuM/+K2dGLJfxVfIHsGwaqKICJnS+Ke2L6UcSrSrtMJLJaT0Im1Qv4TFXfaZShyw==}
     hasBin: true
 
-  drizzle-orm@0.38.1:
-    resolution: {integrity: sha512-TpOzNrPGy7dl0/uP9vKD6ATzp9noJaRYhOYqtOCKxxwSmZqrPxN4SW5kWawVUIcbSd2lkbDCdZue+gtVNLmQsg==}
+  drizzle-orm@0.38.2:
+    resolution: {integrity: sha512-eCE3yPRAskLo1WpM9OHpFaM70tBEDsWhwR/0M3CKyztAXKR9Qs3asZlcJOEliIcUSg8GuwrlY0dmYDgmm6y5GQ==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -5077,7 +5077,7 @@ snapshots:
       miniflare: 3.20241205.0
       wrangler: 3.95.0(@cloudflare/workers-types@4.20241205.0)
 
-  '@hono/zod-validator@0.4.1(hono@4.6.13)(zod@3.24.1)':
+  '@hono/zod-validator@0.4.2(hono@4.6.13)(zod@3.24.1)':
     dependencies:
       hono: 4.6.13
       zod: 3.24.1
@@ -5946,7 +5946,7 @@ snapshots:
 
   dotenv@16.4.7: {}
 
-  drizzle-kit@0.30.0:
+  drizzle-kit@0.30.1:
     dependencies:
       '@drizzle-team/brocli': 0.10.2
       '@esbuild-kit/esm-loader': 2.6.5
@@ -5955,7 +5955,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.38.1(@cloudflare/workers-types@4.20241205.0)(@types/react@19.0.1)(react@19.0.0):
+  drizzle-orm@0.38.2(@cloudflare/workers-types@4.20241205.0)(@types/react@19.0.1)(react@19.0.0):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20241205.0
       '@types/react': 19.0.1
