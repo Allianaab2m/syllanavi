@@ -1,26 +1,48 @@
 import { eq } from "drizzle-orm"
 import type { DrizzleD1Database } from "drizzle-orm/d1"
-import { Lectures } from "server/models/lectures"
+import { Result, err, fromPromise, ok, safeTry } from "neverthrow"
+import {
+  Lecture,
+  LectureNotFound,
+  LectureRepositoryInternalError,
+} from "server/models/lectures"
 import { lectures } from "server/schema"
-import type { LecturesRepository as ILecturesRepository } from "../models/lectures"
+import type { LectureRepository as ILectureRepository } from "../models/lectures"
 
 export const LecturesRepositoryImpl = (db: DrizzleD1Database) =>
   ({
-    async create(args, genID) {
-      await db.insert(lectures).values({ id: genID(), ...args })
-      return undefined
-    },
-    async getFromId(id: string) {
-      const res = (
-        await db.select().from(lectures).where(eq(lectures.id, id))
-      ).at(0)
-      if (res) {
-        return Lectures.fromRepository(res)
-      }
-      return null
-    },
-    async getAll() {
-      const res = await db.select().from(lectures).all()
-      return res.map(Lectures.fromRepository)
-    },
-  }) satisfies ILecturesRepository
+    create: (args, genID) =>
+      safeTry(async function* () {
+        yield* await fromPromise(
+          db.insert(lectures).values({ id: genID(), ...args }),
+          () => new LectureRepositoryInternalError(),
+        )
+        return ok(undefined)
+      }),
+    getFromId: (id: string) =>
+      safeTry(async function* () {
+        const res = yield* await fromPromise(
+          db.select().from(lectures).where(eq(lectures.id, id)).limit(1),
+          () => new LectureRepositoryInternalError(),
+        )
+
+        const lecture = res.at(0)
+
+        if (!lecture) {
+          return err(new LectureNotFound(id))
+        }
+
+        const parsedLecture = yield* Lecture.fromRepository(lecture)
+
+        return ok(parsedLecture)
+      }),
+    getAll: () =>
+      safeTry(async function* () {
+        const res = yield* await fromPromise(
+          db.select().from(lectures).all(),
+          () => new LectureRepositoryInternalError(),
+        )
+
+        return Result.combineWithAllErrors(res.map(Lecture.fromRepository))
+      }),
+  }) satisfies ILectureRepository
