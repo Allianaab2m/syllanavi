@@ -1,5 +1,6 @@
 import { env } from "cloudflare:test"
-import type { Lectures } from "server/models/lectures"
+import { err, ok } from "neverthrow"
+import { type Lecture, LectureNotFound } from "server/models/lectures"
 import { d1DB } from "server/schema"
 import { LecturesRepositoryImpl } from "./lectures"
 
@@ -31,7 +32,9 @@ describe("LecturesRepository", () => {
       teacher: "教員名",
     }
 
-    await repository.create(args, () => "1234")
+    const res = await repository.create(args, () => "1234")
+    expect(res.isOk()).toBe(true)
+
     const { results } = await env.DB.prepare(
       "SELECT * FROM lectures WHERE id = '1234'",
     ).all()
@@ -49,17 +52,17 @@ describe("LecturesRepository", () => {
       name: "テスト講義1",
       credit: 2,
       teacher: "テスト教員1",
-    } satisfies Lectures
+    } satisfies Lecture
 
     const result = await repository.getFromId(id)
 
-    expect(result).toStrictEqual(expectedLecture)
+    expect(result).toEqual(ok(expectedLecture))
   })
 
   it("should return null if lecture not found by id", async () => {
     const id = "non-existent-id"
     const result = await repository.getFromId(id)
-    expect(result).toBeNull()
+    expect(result).toEqual(err(new LectureNotFound("non-existent-id")))
   })
 
   it("should get all lectures", async () => {
@@ -84,10 +87,10 @@ describe("LecturesRepository", () => {
         credit: 2,
         teacher: "テスト教員2",
       },
-    ] satisfies Lectures[]
+    ] satisfies Lecture[]
 
     const result = await repository.getAll()
 
-    expect(result).toStrictEqual(expectedLectures)
+    expect(result).toEqual(ok(expectedLectures))
   })
 })

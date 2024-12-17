@@ -17,7 +17,10 @@ app.use(
 
 export const routes = app.basePath("/api").get("/lectures", async (c) => {
   const res = await LecturesRepositoryImpl(d1DB(c.env.DB)).getAll()
-  return c.json(res)
+  if (res.isErr()) {
+    return c.json(res.unwrapOr(new Error("Internal server error")), 500)
+  }
+  return c.json(res.unwrapOr({}))
 })
 
 export default app
