@@ -12,7 +12,7 @@ importers:
         specifier: 0.4.2
         version: 0.4.2(hono@4.6.14)(zod@3.24.1)
       '@paralleldrive/cuid2':
-        specifier: ^2.2.2
+        specifier: 2.2.2
         version: 2.2.2
       '@remix-run/cloudflare':
         specifier: 2.15.1
@@ -25,7 +25,7 @@ importers:
         version: 2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)
       drizzle-orm:
         specifier: 0.38.2
-        version: 0.38.2(@cloudflare/workers-types@4.20241216.0)(@types/react@19.0.1)(react@19.0.0)
+        version: 0.38.2(@cloudflare/workers-types@4.20241216.0)(@electric-sql/pglite@0.2.15)(@types/react@19.0.1)(react@19.0.0)
       hono:
         specifier: 4.6.14
         version: 4.6.14
@@ -5991,9 +5991,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.38.2(@cloudflare/workers-types@4.20241216.0)(@types/react@19.0.1)(react@19.0.0):
+  drizzle-orm@0.38.2(@cloudflare/workers-types@4.20241216.0)(@electric-sql/pglite@0.2.15)(@types/react@19.0.1)(react@19.0.0):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20241216.0
+      '@electric-sql/pglite': 0.2.15
       '@types/react': 19.0.1
       react: 19.0.0
 
