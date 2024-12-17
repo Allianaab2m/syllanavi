@@ -22,5 +22,6 @@ export default defineWorkersConfig({
         },
       },
     },
+    globals: true
   },
 })

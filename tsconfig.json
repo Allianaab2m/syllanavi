@@ -12,7 +12,8 @@
     "types": [
       "@remix-run/cloudflare",
       "vite/client",
-      "@cloudflare/vitest-pool-workers"
+      "@cloudflare/vitest-pool-workers",
+      "vitest/globals"
     ],
     "isolatedModules": true,
     "esModuleInterop": true,

@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm"
-import { drizzle } from "drizzle-orm/d1"
+import { drizzle as d1Drizzle } from "drizzle-orm/d1"
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core"
 
 export const posts = sqliteTable("posts", {
@@ -10,6 +10,10 @@ export const posts = sqliteTable("posts", {
   ),
 })
 
-export const createDatabaseFromD1 = (d1: D1Database) => {
-  return drizzle(d1)
+export const lectures = sqliteTable("lectures", {
+  id: text("id").primaryKey(),
+})
+
+export const d1DB = (d1: D1Database) => {
+  return d1Drizzle(d1)
 }

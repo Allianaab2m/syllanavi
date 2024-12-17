@@ -1,16 +1,25 @@
 import { zValidator } from "@hono/zod-validator"
 import { Hono } from "hono"
+import { basicAuth } from "hono/basic-auth"
 import { z } from "zod"
 import { PostsRepository } from "./repository/posts"
-import { createDatabaseFromD1 } from "./schema"
+import { d1DB } from "./schema"
 
-const app = new Hono<{ Bindings: Env }>().basePath("/api")
+const app = new Hono<{ Bindings: Env }>()
 
-const routes = app
-  .get("/", (c) => {
-    return c.json({
-      hello: "Hono",
-    })
+app.use(
+  "/admin/*",
+  basicAuth({
+    username: "hono",
+    password: "password",
+  }),
+)
+
+export const routes = app
+  .basePath("/api")
+  .get("/posts", async (c) => {
+    const res = await PostsRepository(d1DB(c.env.DB)).getAll()
+    return c.json(res)
   })
   .post(
     "/posts/create",
@@ -22,7 +31,7 @@ const routes = app
     ),
     async (c) => {
       const { title } = c.req.valid("json")
-      await PostsRepository(createDatabaseFromD1(c.env.DB)).create({ title })
+      await PostsRepository(d1DB(c.env.DB)).create({ title })
       return c.body("OK!")
     },
   )
@@ -36,9 +45,7 @@ const routes = app
     ),
     async (c) => {
       const { id } = c.req.valid("param")
-      const res = await PostsRepository(
-        createDatabaseFromD1(c.env.DB),
-      ).getFromId(id)
+      const res = await PostsRepository(d1DB(c.env.DB)).getFromId(id)
       if (res) {
         return c.json(res)
       }
