@@ -10,6 +10,7 @@ const migrations = await readD1Migrations(migrationsPath)
 export default defineWorkersConfig({
   test: {
     setupFiles: ["./server/test/apply-migrations.ts"],
+    include: ["./server/**/*.test.ts"],
     poolOptions: {
       workers: {
         singleWorker: true,
