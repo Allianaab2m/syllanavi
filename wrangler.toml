@@ -10,5 +10,8 @@ database_name = "syllanavi-v2-d1"
 database_id = "ea7c2813-e946-4ce0-bf3c-fdfc951e67c2"
 migrations_dir = "./drizzle/migrations"
 
-[vars]
-VITE_API_URL = "https://syllanavi.pages.dev"
+[[d1_databases]]
+binding = "DB_DEV"
+database_name = "syllanavi-v2-d1-dev"
+database_id = "ce9772b0-3d0a-4b63-98e1-aa2efef94e6f"
+migrations_dir = "./drizzle/migrations"
