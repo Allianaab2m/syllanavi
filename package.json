@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "deploy": "wrangler pages deploy ./build/client",
+    "deploy": "pnpm migrate:apply && wrangler pages deploy ./build/client",
     "dev": "remix vite:dev",
     "check:format": "biome format",
     "check:lint": "biome lint",
@@ -17,7 +17,7 @@
     "test": "vitest",
     "migrate:generate": "drizzle-kit generate",
     "migrate:apply:local": "wrangler d1 migrations apply syllanavi-v2-d1 --local",
-    "migrate:apply": "wrangler d1 migrations apply syllanavi-v2-d1",
+    "migrate:apply": "wrangler d1 migrations apply syllanavi-v2-d1 --remote",
     "postinstall": "lefthook install"
   },
   "dependencies": {
