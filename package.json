@@ -44,7 +44,7 @@
     "@commitlint/config-conventional": "19.6.0",
     "@hono/vite-dev-server": "0.17.0",
     "@remix-run/dev": "2.15.1",
-    "@types/react": "19.0.1",
+    "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
     "autoprefixer": "10.4.20",
     "drizzle-kit": "0.30.1",
