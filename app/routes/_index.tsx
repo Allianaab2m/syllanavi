@@ -1,6 +1,7 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare"
 import { useLoaderData } from "@remix-run/react"
 import { client } from "~/client"
+import { Button } from "~/components/ui/button"
 
 export const meta: MetaFunction = () => {
   return [{ title: "Syllanavi" }]
@@ -21,6 +22,7 @@ export default function Index() {
           <h2>{l.name}</h2>
         </div>
       ))}
+      <Button>Button</Button>
     </div>
   )
 }
