@@ -24,6 +24,7 @@
   "dependencies": {
     "@hono/zod-validator": "0.4.2",
     "@paralleldrive/cuid2": "2.2.2",
+    "@radix-ui/react-slot": "^1.1.1",
     "@remix-run/cloudflare": "2.15.1",
     "@remix-run/cloudflare-pages": "2.15.1",
     "@remix-run/react": "2.15.1",
