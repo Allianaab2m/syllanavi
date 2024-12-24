@@ -70,7 +70,7 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@chromatic-com/storybook':
-        specifier: ^3.2.3
+        specifier: 3.2.3
         version: 3.2.3(react@19.0.0)(storybook@8.4.7(prettier@2.8.8))
       '@cloudflare/vitest-pool-workers':
         specifier: 0.5.40
@@ -91,25 +91,25 @@ importers:
         specifier: 2.15.2
         version: 2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@types/node@22.10.2)(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.1)(yaml@2.6.1))(wrangler@3.99.0(@cloudflare/workers-types@4.20241218.0))
       '@storybook/addon-essentials':
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(@types/react@19.0.2)(storybook@8.4.7(prettier@2.8.8))
       '@storybook/addon-interactions':
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@2.8.8))
       '@storybook/addon-onboarding':
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(react@19.0.0)(storybook@8.4.7(prettier@2.8.8))
       '@storybook/blocks':
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@2.8.8))
       '@storybook/react':
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@2.8.8)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@2.8.8))(typescript@5.7.2)
       '@storybook/react-vite':
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@2.8.8)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.28.1)(storybook@8.4.7(prettier@2.8.8))(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.1)(yaml@2.6.1))
       '@storybook/test':
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@2.8.8))
       '@types/react':
         specifier: 19.0.2
@@ -130,7 +130,7 @@ importers:
         specifier: 8.4.49
         version: 8.4.49
       storybook:
-        specifier: ^8.4.7
+        specifier: 8.4.7
         version: 8.4.7(prettier@2.8.8)
       tailwindcss:
         specifier: 3.4.17
