@@ -1,7 +1,7 @@
 name: Deploy Storybook
 
 on:
-    push:
+  push:
     
 jobs:
   build:
