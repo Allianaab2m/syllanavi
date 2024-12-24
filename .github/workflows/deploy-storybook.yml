@@ -42,3 +42,14 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: post preview url to pull-request
+        uses: actions/github-script@v3
+        with:
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'storybook preview created!!\n' +
+                'https://${{ steps.deployment.outputs.page_url }}'
+            })
