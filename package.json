@@ -51,7 +51,7 @@
     "@cloudflare/workers-types": "4.20241230.0",
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
-    "@hono/vite-dev-server": "0.17.0",
+    "@hono/vite-dev-server": "0.18.0",
     "@remix-run/dev": "2.15.2",
     "@storybook/addon-essentials": "8.4.7",
     "@storybook/addon-interactions": "8.4.7",
