@@ -7,7 +7,10 @@ import {
   LectureRepositoryInternalError,
 } from "server/models/lectures"
 import { lectures } from "server/schema"
-import type { LectureRepository as ILectureRepository } from "../models/lectures"
+import type {
+  LectureRepository as ILectureRepository,
+  LectureId,
+} from "../models/lectures"
 
 export const LecturesRepositoryImpl = (db: DrizzleD1Database) =>
   ({
@@ -19,7 +22,7 @@ export const LecturesRepositoryImpl = (db: DrizzleD1Database) =>
         )
         return ok(undefined)
       }),
-    getFromId: (id: string) =>
+    getFromId: (id: LectureId) =>
       safeTry(async function* () {
         const res = yield* await fromPromise(
           db.select().from(lectures).where(eq(lectures.id, id)).limit(1),
