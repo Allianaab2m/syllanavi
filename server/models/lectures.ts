@@ -17,13 +17,13 @@ export class LectureModelParseError extends Error {
 export type LectureRepository = {
   create: (
     args: Omit<typeof lectures.$inferInsert, "id">,
-    genID: () => string,
+    genID: () => LectureID,
   ) => ResultAsync<
     void,
     LectureRepositoryInternalError | LectureModelParseError[]
   >
   getFromId: (
-    id: string,
+    id: LectureID,
   ) => ResultAsync<
     Lecture,
     LectureRepositoryInternalError | LectureNotFound | LectureModelParseError[]
@@ -33,6 +33,8 @@ export type LectureRepository = {
     LectureRepositoryInternalError | LectureModelParseError[][]
   >
 }
+
+export type LectureID = string & { readonly brand: unique symbol }
 
 export type LectureGrade = 1 | 2 | 3 | 4
 export const LectureGrade = {
@@ -89,7 +91,7 @@ export const LectureDay = {
 }
 
 export type Lecture = {
-  id: string
+  id: LectureID
   year: number
   grade: LectureGrade
   semester: LectureSemester
@@ -110,7 +112,7 @@ export const Lecture = {
       ])
 
       return ok({
-        id: args.id,
+        id: args.id as LectureID,
         year: args.year,
         grade,
         semester,

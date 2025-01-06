@@ -3,6 +3,7 @@ import {
   Lecture,
   LectureDay,
   LectureGrade,
+  type LectureID,
   LectureModelParseError,
   LectureSemester,
 } from "./lectures"
@@ -92,7 +93,7 @@ describe("Lecture", () => {
       teacher: "テスト教員1",
     }
     const expectedLecture = {
-      id: "1",
+      id: "1" as LectureID,
       year: 2024,
       grade: 1,
       semester: "前期",
