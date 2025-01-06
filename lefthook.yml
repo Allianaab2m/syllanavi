@@ -3,11 +3,11 @@ pre-commit:
   commands:
     biome-lint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: pnpm check:lint
+      run: pnpm biome lint {staged_files}
       stage_fixed: true
     biome-format:
       glob: "*.{js,ts,jsx,tsx}"
-      run: pnpm check:format
+      run: pnpm biome check --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true {staged_files}
       stage_fixed: true
 commit-msg:
   commands:
