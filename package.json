@@ -47,7 +47,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "3.2.3",
-    "@cloudflare/vitest-pool-workers": "0.5.41",
+    "@cloudflare/vitest-pool-workers": "0.6.0",
     "@cloudflare/workers-types": "4.20250109.0",
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
