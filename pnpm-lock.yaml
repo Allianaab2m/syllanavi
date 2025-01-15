@@ -40,7 +40,7 @@ importers:
         version: 4.6.16
       hono-remix-adapter:
         specifier: 0.5.4
-        version: 0.5.4(@cloudflare/workers-types@4.20250109.0)(hono@4.6.16)(miniflare@3.20241230.1)(typescript@5.7.3)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
+        version: 0.5.4(@cloudflare/workers-types@4.20250109.0)(hono@4.6.16)(miniflare@3.20241230.2)(typescript@5.7.3)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
       isbot:
         specifier: 5.1.21
         version: 5.1.21
@@ -73,8 +73,8 @@ importers:
         specifier: 3.2.3
         version: 3.2.3(react@19.0.0)(storybook@8.4.7(prettier@2.8.8))
       '@cloudflare/vitest-pool-workers':
-        specifier: 0.6.0
-        version: 0.6.0(@cloudflare/workers-types@4.20250109.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.1.8(@types/node@22.10.5))
+        specifier: 0.6.1
+        version: 0.6.1(@cloudflare/workers-types@4.20250109.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.1.8(@types/node@22.10.5))
       '@cloudflare/workers-types':
         specifier: 4.20250109.0
         version: 4.20250109.0
@@ -86,7 +86,7 @@ importers:
         version: 19.6.0
       '@hono/vite-dev-server':
         specifier: 0.18.0
-        version: 0.18.0(hono@4.6.16)(miniflare@3.20241230.1)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
+        version: 0.18.0(hono@4.6.16)(miniflare@3.20241230.2)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
       '@remix-run/dev':
         specifier: 2.15.2
         version: 2.15.2(@remix-run/react@2.15.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@types/node@22.10.5)(typescript@5.7.3)(vite@6.0.7(@types/node@22.10.5)(jiti@2.4.2)(yaml@2.7.0))(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
@@ -124,8 +124,8 @@ importers:
         specifier: 0.30.1
         version: 0.30.1
       lefthook:
-        specifier: 1.10.4
-        version: 1.10.4
+        specifier: 1.10.5
+        version: 1.10.5
       postcss:
         specifier: 8.4.49
         version: 8.4.49
@@ -528,8 +528,8 @@ packages:
     resolution: {integrity: sha512-YLPHc8yASwjNkmcDMQMY35yiWjoKAKnhUbPRszBRS0YgH+IXtsMp61j+yTcnCE3oO2DgP0U3iejLC8FTtKDC8Q==}
     engines: {node: '>=16.13'}
 
-  '@cloudflare/vitest-pool-workers@0.6.0':
-    resolution: {integrity: sha512-n6oMnFUTB9jJLNHWuDcwSVB4PkdFlnDl3xlXqiPs1dlzZ/+XhMDvxlUJhq4I+/5JBkfBYxRB+OO0ZhR40bov/A==}
+  '@cloudflare/vitest-pool-workers@0.6.1':
+    resolution: {integrity: sha512-QXB3upM2/WebISm2VPcjmMElkz/EakTXwmk43D2YSxWqUsVVAfvw/FyhDhRTdwopOcPwtRFeLaqP3WuABXEhZg==}
     peerDependencies:
       '@vitest/runner': 2.0.x - 2.1.x
       '@vitest/snapshot': 2.0.x - 2.1.x
@@ -3555,58 +3555,58 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
-  lefthook-darwin-arm64@1.10.4:
-    resolution: {integrity: sha512-ARVuQwMFkKBy++2W4ACwCf5oy93qfOs0KKjJM1ssvgLB25MtJQeIhEoJ10sPXYkEnLZnEkfAtX4womVEjCXyXw==}
+  lefthook-darwin-arm64@1.10.5:
+    resolution: {integrity: sha512-Sllv7RgzR33gwmnWf6dFttzXbA78f9dBDhX4IVJUUSa5AM/6uvchooM7+sdvv3+G8aR3MsGewIImlZoD5rn3wg==}
     cpu: [arm64]
     os: [darwin]
 
-  lefthook-darwin-x64@1.10.4:
-    resolution: {integrity: sha512-KQw7nPtdF3+Bf9UQMdME2jzEu9KJJhAt5SdS9/JTDcfXTwBd1tz3l1bQT4BmvP2Du3XqSvgttWCrhGfIkfO9mw==}
+  lefthook-darwin-x64@1.10.5:
+    resolution: {integrity: sha512-pClWV5IpCjBDYD7QetQMxOjZQ/9/ry8HH9QGHPAHELHISqpMePd9sVvaRBQNeq9KY2nqmn46/4oJ+dCI3jUEuQ==}
     cpu: [x64]
     os: [darwin]
 
-  lefthook-freebsd-arm64@1.10.4:
-    resolution: {integrity: sha512-BMXbiB6cF8Cr8pyE3r/hPzBMZJqTNZ4dwC5w/RQTvori5kow8kDgiby2pNVq3gaYvyg4TpXccc8dGgjQoOBHRQ==}
+  lefthook-freebsd-arm64@1.10.5:
+    resolution: {integrity: sha512-5xqw26FSE0UEYLXkbTuPQcLpCbchCRDVaMwGN7jbF5WpeFAinYumfZ/ZzmXtfE+l4DSMALc/62EpA2sEtOxAuA==}
     cpu: [arm64]
     os: [freebsd]
 
-  lefthook-freebsd-x64@1.10.4:
-    resolution: {integrity: sha512-ClXTNqa4DyXJjZ2u8SINx4XxHWOvJ7FFbtqPl+NJiPmToRZ/nYVaeZakgHTblupB3z/xggiPAKdlKbqABELCzw==}
+  lefthook-freebsd-x64@1.10.5:
+    resolution: {integrity: sha512-tLOol890ozyZ1cvlZWqk6StBwA5yFifwuoWcFFdGCDJp10NSs6EmKedYKxLVP+v7gcaqg+69bnGgZpPgG9KCoA==}
     cpu: [x64]
     os: [freebsd]
 
-  lefthook-linux-arm64@1.10.4:
-    resolution: {integrity: sha512-DyBOXztZSlbMJaQzZ41d+FKgYMC1RzJqHeHFjGMKGNF1Q8eUfW1gGhrBM7yfSJIFAuqOCUK6fw7hI5l7YbOLuQ==}
+  lefthook-linux-arm64@1.10.5:
+    resolution: {integrity: sha512-ygVMXFUOVMIwC4cFSUr1YVXkyazLMwQfHc6Bh+D3RraHQ4CuqfGLr9Dqg3JUxQrczOsWlvw7m8fAgz37n4hquQ==}
     cpu: [arm64]
     os: [linux]
 
-  lefthook-linux-x64@1.10.4:
-    resolution: {integrity: sha512-V3U/8rs1/6nCmghs4YRGdxPonTLVtvs/W3Ji6UQXFqGLeNAhlhTj2XTYko+vY2QfmavThBpqOtw36Line+d6iw==}
+  lefthook-linux-x64@1.10.5:
+    resolution: {integrity: sha512-zu8nnQKjM8P+awoRpIqbyo83Oi88QVDjS5veIXGj61bVNvrMJHMGqMseKJVV+6DNGuTOFx+7W2Iv5OrzQKJgGw==}
     cpu: [x64]
     os: [linux]
 
-  lefthook-openbsd-arm64@1.10.4:
-    resolution: {integrity: sha512-+vCvGHqf5qqijbBgjBaQBzV4Mpl16UIgw0QQmnS0oYiaL5HQND3KPSA/bsLnoXe9UWvpIQY4GfMVpqhdl2HN4Q==}
+  lefthook-openbsd-arm64@1.10.5:
+    resolution: {integrity: sha512-XRQ4/Jxfm2HnVQB8ZI2f35JNeuO4PANKpO6u29eNMlCJh9HejbdyDbZ3EpS8qIFREkHOxaiKI3fbYd5nsOKcUw==}
     cpu: [arm64]
     os: [openbsd]
 
-  lefthook-openbsd-x64@1.10.4:
-    resolution: {integrity: sha512-kvHxriC02YQY9egRD43uzMA7Y/VWo+CzcW894ovpmROOCmmipydDoWPoEd+kknyYyNmntXhXgebAopCy/ZOr8A==}
+  lefthook-openbsd-x64@1.10.5:
+    resolution: {integrity: sha512-cVWj6oHOpQ8SdSxfQ920TceSzJyf3jwYJ/QTG4Du2yyl8kds6D3l4Qo54zvfTCeEkOFiY+pAODLLYdQZOEQSnw==}
     cpu: [x64]
     os: [openbsd]
 
-  lefthook-windows-arm64@1.10.4:
-    resolution: {integrity: sha512-jSta3l7gYjZWCytvmEC039XXbuvJiZO8hawR3B6nWZFgjaYA0ECS6/fdxuz1kGxd1zMDrvnFoOeTcSGQwHGmaA==}
+  lefthook-windows-arm64@1.10.5:
+    resolution: {integrity: sha512-ISyQZlV5P4VmAk8ovdqPyNse4XDp4WM21AKzaDvaGvT/NRgg9Qn9yHFeChgjlUQJitOF7GsQ2hqfli6P4xk62A==}
     cpu: [arm64]
     os: [win32]
 
-  lefthook-windows-x64@1.10.4:
-    resolution: {integrity: sha512-d6jOidPQ8HTmXHH8izE7/BY4ZHAsCVgkfSyQI13rvBahZfPjmtE0yNBfd2MC+xyxW1E8M0uloy7ZhAYM4WZjdw==}
+  lefthook-windows-x64@1.10.5:
+    resolution: {integrity: sha512-s9tEKZXi3iRqVW/u/9qwOGAiRfDzeO0kNJZKT0JVH3MnZwewF/pVYh+XcfcoNr+SSgsiKvZalN41Sl7XrKyoAw==}
     cpu: [x64]
     os: [win32]
 
-  lefthook@1.10.4:
-    resolution: {integrity: sha512-DwRkvZA7IeZv9hwdXKr0PIi0FX1/2ehU5ImPYCs1q9QlPQVmKBborb/z5BnI5k/y52qaAHCgBhcuhm5cwLjMSQ==}
+  lefthook@1.10.5:
+    resolution: {integrity: sha512-zVRJtGh6wK6DuUVFeGrYmnSk2fB6L1wh0hOPbRw4E5CMHo7uiTD2f5zRh7VKtMS8jFUnw9sEprffoYqRkJWdeA==}
     hasBin: true
 
   lilconfig@3.1.3:
@@ -3904,6 +3904,11 @@ packages:
 
   miniflare@3.20241230.1:
     resolution: {integrity: sha512-CS6zm12IK7VQGAnypfqqfweVtRKwkz1k4E1cKuF04yCDsuKzkM1UkzCfKhD7cJdGwdEtdtRwq69kODeVFAl8og==}
+    engines: {node: '>=16.13'}
+    hasBin: true
+
+  miniflare@3.20241230.2:
+    resolution: {integrity: sha512-gFC3IaUKrLGdtA6y6PLpC/QE5YAjB5ITCfBZHkosRyFZ9ApaCHKcHRvrEFMc/R19QxxtHD+G3tExEHp7MmtsYQ==}
     engines: {node: '>=16.13'}
     hasBin: true
 
@@ -5119,6 +5124,16 @@ packages:
       '@cloudflare/workers-types':
         optional: true
 
+  wrangler@3.102.0:
+    resolution: {integrity: sha512-Za4DstbS3+/hu+///K/4dFFeV6XbPBAGp7NCnVajchxRTwEPTdbO5eezH0HLJPMHK6G/0yIzyhlEMnyg4YzHAA==}
+    engines: {node: '>=16.17.0'}
+    hasBin: true
+    peerDependencies:
+      '@cloudflare/workers-types': ^4.20241230.0
+    peerDependenciesMeta:
+      '@cloudflare/workers-types':
+        optional: true
+
   wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
     engines: {node: '>=10'}
@@ -5968,7 +5983,7 @@ snapshots:
     dependencies:
       mime: 3.0.0
 
-  '@cloudflare/vitest-pool-workers@0.6.0(@cloudflare/workers-types@4.20250109.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.1.8(@types/node@22.10.5))':
+  '@cloudflare/vitest-pool-workers@0.6.1(@cloudflare/workers-types@4.20250109.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.1.8(@types/node@22.10.5))':
     dependencies:
       '@vitest/runner': 2.1.8
       '@vitest/snapshot': 2.1.8
@@ -5976,14 +5991,13 @@ snapshots:
       cjs-module-lexer: 1.4.1
       devalue: 4.3.3
       esbuild: 0.17.19
-      miniflare: 3.20241230.1
+      miniflare: 3.20241230.2
       semver: 7.6.3
       vitest: 2.1.8(@types/node@22.10.5)
-      wrangler: 3.101.0(@cloudflare/workers-types@4.20250109.0)
+      wrangler: 3.102.0(@cloudflare/workers-types@4.20250109.0)
       zod: 3.24.1
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
-      - aws-crt
       - bufferutil
       - supports-color
       - utf-8-validate
@@ -6560,22 +6574,22 @@ snapshots:
     dependencies:
       hono: 4.6.16
 
-  '@hono/vite-dev-server@0.17.0(hono@4.6.16)(miniflare@3.20241230.1)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))':
+  '@hono/vite-dev-server@0.17.0(hono@4.6.16)(miniflare@3.20241230.2)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))':
     dependencies:
       '@hono/node-server': 1.13.7(hono@4.6.16)
       hono: 4.6.16
       minimatch: 9.0.5
     optionalDependencies:
-      miniflare: 3.20241230.1
+      miniflare: 3.20241230.2
       wrangler: 3.101.0(@cloudflare/workers-types@4.20250109.0)
 
-  '@hono/vite-dev-server@0.18.0(hono@4.6.16)(miniflare@3.20241230.1)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))':
+  '@hono/vite-dev-server@0.18.0(hono@4.6.16)(miniflare@3.20241230.2)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))':
     dependencies:
       '@hono/node-server': 1.13.7(hono@4.6.16)
       hono: 4.6.16
       minimatch: 9.0.5
     optionalDependencies:
-      miniflare: 3.20241230.1
+      miniflare: 3.20241230.2
       wrangler: 3.101.0(@cloudflare/workers-types@4.20250109.0)
 
   '@hono/zod-validator@0.4.2(hono@4.6.16)(zod@3.24.1)':
@@ -8749,9 +8763,9 @@ snapshots:
 
   hast-util-whitespace@2.0.1: {}
 
-  hono-remix-adapter@0.5.4(@cloudflare/workers-types@4.20250109.0)(hono@4.6.16)(miniflare@3.20241230.1)(typescript@5.7.3)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0)):
+  hono-remix-adapter@0.5.4(@cloudflare/workers-types@4.20250109.0)(hono@4.6.16)(miniflare@3.20241230.2)(typescript@5.7.3)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0)):
     dependencies:
-      '@hono/vite-dev-server': 0.17.0(hono@4.6.16)(miniflare@3.20241230.1)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
+      '@hono/vite-dev-server': 0.17.0(hono@4.6.16)(miniflare@3.20241230.2)(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
       '@remix-run/server-runtime': 2.15.2(typescript@5.7.3)
       hono: 4.6.16
     optionalDependencies:
@@ -8945,48 +8959,48 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  lefthook-darwin-arm64@1.10.4:
+  lefthook-darwin-arm64@1.10.5:
     optional: true
 
-  lefthook-darwin-x64@1.10.4:
+  lefthook-darwin-x64@1.10.5:
     optional: true
 
-  lefthook-freebsd-arm64@1.10.4:
+  lefthook-freebsd-arm64@1.10.5:
     optional: true
 
-  lefthook-freebsd-x64@1.10.4:
+  lefthook-freebsd-x64@1.10.5:
     optional: true
 
-  lefthook-linux-arm64@1.10.4:
+  lefthook-linux-arm64@1.10.5:
     optional: true
 
-  lefthook-linux-x64@1.10.4:
+  lefthook-linux-x64@1.10.5:
     optional: true
 
-  lefthook-openbsd-arm64@1.10.4:
+  lefthook-openbsd-arm64@1.10.5:
     optional: true
 
-  lefthook-openbsd-x64@1.10.4:
+  lefthook-openbsd-x64@1.10.5:
     optional: true
 
-  lefthook-windows-arm64@1.10.4:
+  lefthook-windows-arm64@1.10.5:
     optional: true
 
-  lefthook-windows-x64@1.10.4:
+  lefthook-windows-x64@1.10.5:
     optional: true
 
-  lefthook@1.10.4:
+  lefthook@1.10.5:
     optionalDependencies:
-      lefthook-darwin-arm64: 1.10.4
-      lefthook-darwin-x64: 1.10.4
-      lefthook-freebsd-arm64: 1.10.4
-      lefthook-freebsd-x64: 1.10.4
-      lefthook-linux-arm64: 1.10.4
-      lefthook-linux-x64: 1.10.4
-      lefthook-openbsd-arm64: 1.10.4
-      lefthook-openbsd-x64: 1.10.4
-      lefthook-windows-arm64: 1.10.4
-      lefthook-windows-x64: 1.10.4
+      lefthook-darwin-arm64: 1.10.5
+      lefthook-darwin-x64: 1.10.5
+      lefthook-freebsd-arm64: 1.10.5
+      lefthook-freebsd-x64: 1.10.5
+      lefthook-linux-arm64: 1.10.5
+      lefthook-linux-x64: 1.10.5
+      lefthook-openbsd-arm64: 1.10.5
+      lefthook-openbsd-x64: 1.10.5
+      lefthook-windows-arm64: 1.10.5
+      lefthook-windows-x64: 1.10.5
 
   lilconfig@3.1.3: {}
 
@@ -9436,6 +9450,25 @@ snapshots:
   min-indent@1.0.1: {}
 
   miniflare@3.20241230.1:
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      acorn: 8.14.0
+      acorn-walk: 8.3.4
+      capnp-ts: 0.7.0
+      exit-hook: 2.2.1
+      glob-to-regexp: 0.4.1
+      stoppable: 1.1.0
+      undici: 5.28.4
+      workerd: 1.20241230.0
+      ws: 8.18.0
+      youch: 3.3.4
+      zod: 3.24.1
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
+  miniflare@3.20241230.2:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       acorn: 8.14.0
@@ -10730,6 +10763,25 @@ snapshots:
       fsevents: 2.3.3
     transitivePeerDependencies:
       - aws-crt
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
+  wrangler@3.102.0(@cloudflare/workers-types@4.20250109.0):
+    dependencies:
+      '@cloudflare/kv-asset-handler': 0.3.4
+      '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
+      '@esbuild-plugins/node-modules-polyfill': 0.2.2(esbuild@0.17.19)
+      blake3-wasm: 2.1.5
+      esbuild: 0.17.19
+      miniflare: 3.20241230.2
+      path-to-regexp: 6.3.0
+      unenv: unenv-nightly@2.0.0-20241218-183400-5d6aec3
+      workerd: 1.20241230.0
+    optionalDependencies:
+      '@cloudflare/workers-types': 4.20250109.0
+      fsevents: 2.3.3
+    transitivePeerDependencies:
       - bufferutil
       - supports-color
       - utf-8-validate
