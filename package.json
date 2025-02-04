@@ -47,7 +47,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "3.2.4",
-    "@cloudflare/vitest-pool-workers": "0.6.11",
+    "@cloudflare/vitest-pool-workers": "0.6.12",
     "@cloudflare/workers-types": "4.20250129.0",
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
@@ -72,7 +72,7 @@
     "vite": "6.0.11",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "2.1.9",
-    "wrangler": "3.107.2"
+    "wrangler": "3.107.3"
   },
   "engines": {
     "node": "22.13.1"
