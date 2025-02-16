@@ -16,7 +16,7 @@ importers:
         version: 2.2.2
       '@radix-ui/react-slot':
         specifier: 1.1.2
-        version: 1.1.2(@types/react@19.0.8)(react@19.0.0)
+        version: 1.1.2(@types/react@19.0.9)(react@19.0.0)
       '@remix-run/cloudflare':
         specifier: 2.15.3
         version: 2.15.3(@cloudflare/workers-types@4.20250214.0)(typescript@5.7.3)
@@ -92,7 +92,7 @@ importers:
         version: 2.15.3(@remix-run/react@2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@types/node@22.13.1)(typescript@5.7.3)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(yaml@2.7.0))(wrangler@3.109.1(@cloudflare/workers-types@4.20250214.0))
       '@storybook/addon-essentials':
         specifier: 8.5.6
-        version: 8.5.6(@types/react@19.0.8)(storybook@8.5.6(prettier@2.8.8))
+        version: 8.5.6(@types/react@19.0.9)(storybook@8.5.6(prettier@2.8.8))
       '@storybook/addon-interactions':
         specifier: 8.5.6
         version: 8.5.6(storybook@8.5.6(prettier@2.8.8))
@@ -112,11 +112,11 @@ importers:
         specifier: 8.5.6
         version: 8.5.6(storybook@8.5.6(prettier@2.8.8))
       '@types/react':
-        specifier: 19.0.8
-        version: 19.0.8
+        specifier: 19.0.9
+        version: 19.0.9
       '@types/react-dom':
         specifier: 19.0.3
-        version: 19.0.3(@types/react@19.0.8)
+        version: 19.0.3(@types/react@19.0.9)
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.5.2)
@@ -2012,8 +2012,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.0.8':
-    resolution: {integrity: sha512-9P/o1IGdfmQxrujGbIMDyYaaCykhLKc0NGCtYcECNUr9UAaDe4gwvV9bR6tvd5Br1SG0j+PBpbKr2UYY8CwqSw==}
+  '@types/react@19.0.9':
+    resolution: {integrity: sha512-FedNTYgmMwSZmD1Sru/W1gJKuiYCN/3SuBkmZkcxX+FpO5zL76B22A9YNfAKg4HQO3Neh/30AiynP6BELdU0qQ==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -5924,10 +5924,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.1.0(@types/react@19.0.8)(react@19.0.0)':
+  '@mdx-js/react@3.1.0(@types/react@19.0.9)(react@19.0.0)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.0.8
+      '@types/react': 19.0.9
       react: 19.0.0
 
   '@noble/hashes@1.7.1': {}
@@ -5984,18 +5984,18 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@radix-ui/react-compose-refs@1.1.1(@types/react@19.0.8)(react@19.0.0)':
+  '@radix-ui/react-compose-refs@1.1.1(@types/react@19.0.9)(react@19.0.0)':
     dependencies:
       react: 19.0.0
     optionalDependencies:
-      '@types/react': 19.0.8
+      '@types/react': 19.0.9
 
-  '@radix-ui/react-slot@1.1.2(@types/react@19.0.8)(react@19.0.0)':
+  '@radix-ui/react-slot@1.1.2(@types/react@19.0.9)(react@19.0.0)':
     dependencies:
-      '@radix-ui/react-compose-refs': 1.1.1(@types/react@19.0.8)(react@19.0.0)
+      '@radix-ui/react-compose-refs': 1.1.1(@types/react@19.0.9)(react@19.0.0)
       react: 19.0.0
     optionalDependencies:
-      '@types/react': 19.0.8
+      '@types/react': 19.0.9
 
   '@remix-run/cloudflare-pages@2.15.3(@cloudflare/workers-types@4.20250214.0)(typescript@5.7.3)':
     dependencies:
@@ -6244,9 +6244,9 @@ snapshots:
       storybook: 8.5.6(prettier@2.8.8)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.5.6(@types/react@19.0.8)(storybook@8.5.6(prettier@2.8.8))':
+  '@storybook/addon-docs@8.5.6(@types/react@19.0.9)(storybook@8.5.6(prettier@2.8.8))':
     dependencies:
-      '@mdx-js/react': 3.1.0(@types/react@19.0.8)(react@19.0.0)
+      '@mdx-js/react': 3.1.0(@types/react@19.0.9)(react@19.0.0)
       '@storybook/blocks': 8.5.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.5.6(prettier@2.8.8))
       '@storybook/csf-plugin': 8.5.6(storybook@8.5.6(prettier@2.8.8))
       '@storybook/react-dom-shim': 8.5.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.5.6(prettier@2.8.8))
@@ -6257,12 +6257,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.5.6(@types/react@19.0.8)(storybook@8.5.6(prettier@2.8.8))':
+  '@storybook/addon-essentials@8.5.6(@types/react@19.0.9)(storybook@8.5.6(prettier@2.8.8))':
     dependencies:
       '@storybook/addon-actions': 8.5.6(storybook@8.5.6(prettier@2.8.8))
       '@storybook/addon-backgrounds': 8.5.6(storybook@8.5.6(prettier@2.8.8))
       '@storybook/addon-controls': 8.5.6(storybook@8.5.6(prettier@2.8.8))
-      '@storybook/addon-docs': 8.5.6(@types/react@19.0.8)(storybook@8.5.6(prettier@2.8.8))
+      '@storybook/addon-docs': 8.5.6(@types/react@19.0.9)(storybook@8.5.6(prettier@2.8.8))
       '@storybook/addon-highlight': 8.5.6(storybook@8.5.6(prettier@2.8.8))
       '@storybook/addon-measure': 8.5.6(storybook@8.5.6(prettier@2.8.8))
       '@storybook/addon-outline': 8.5.6(storybook@8.5.6(prettier@2.8.8))
@@ -6531,11 +6531,11 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
-  '@types/react-dom@19.0.3(@types/react@19.0.8)':
+  '@types/react-dom@19.0.3(@types/react@19.0.9)':
     dependencies:
-      '@types/react': 19.0.8
+      '@types/react': 19.0.9
 
-  '@types/react@19.0.8':
+  '@types/react@19.0.9':
     dependencies:
       csstype: 3.1.3
 
