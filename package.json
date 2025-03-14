@@ -48,7 +48,7 @@
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "3.2.5",
     "@cloudflare/vitest-pool-workers": "0.8.0",
-    "@cloudflare/workers-types": "4.20250311.0",
+    "@cloudflare/workers-types": "4.20250313.0",
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@hono/vite-dev-server": "0.19.0",
