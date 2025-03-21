@@ -33,7 +33,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "drizzle-orm": "0.40.1",
-    "hono": "4.7.4",
+    "hono": "4.7.5",
     "hono-remix-adapter": "0.5.4",
     "isbot": "5.1.25",
     "lucide-react": "0.483.0",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "3.2.6",
-    "@cloudflare/vitest-pool-workers": "0.8.2",
+    "@cloudflare/vitest-pool-workers": "0.8.3",
     "@cloudflare/workers-types": "4.20250319.0",
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
