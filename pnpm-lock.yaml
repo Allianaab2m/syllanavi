@@ -121,8 +121,8 @@ importers:
         specifier: 10.4.21
         version: 10.4.21(postcss@8.5.3)
       drizzle-kit:
-        specifier: 0.30.6
-        version: 0.30.6
+        specifier: 0.31.0
+        version: 0.31.0
       lefthook:
         specifier: 1.11.10
         version: 1.11.10
@@ -2644,8 +2644,8 @@ packages:
     resolution: {integrity: sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==}
     engines: {node: '>=12'}
 
-  drizzle-kit@0.30.6:
-    resolution: {integrity: sha512-U4wWit0fyZuGuP7iNmRleQyK2V8wCuv57vf5l3MnG4z4fzNTjY/U13M8owyQ5RavqvqxBifWORaR3wIUzlN64g==}
+  drizzle-kit@0.31.0:
+    resolution: {integrity: sha512-pcKVT+GbfPA+bUovPIilgVOoq+onNBo/YQBG86sf3/GFHkN6lRJPm1l7dKN0IMAk57RQoIm4GUllRrasLlcaSg==}
     hasBin: true
 
   drizzle-orm@0.41.0:
@@ -6114,7 +6114,8 @@ snapshots:
     dependencies:
       '@noble/hashes': 1.7.1
 
-  '@petamoriken/float16@3.9.2': {}
+  '@petamoriken/float16@3.9.2':
+    optional: true
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -7252,13 +7253,12 @@ snapshots:
 
   dotenv@16.5.0: {}
 
-  drizzle-kit@0.30.6:
+  drizzle-kit@0.31.0:
     dependencies:
       '@drizzle-team/brocli': 0.10.2
       '@esbuild-kit/esm-loader': 2.6.5
-      esbuild: 0.19.12
-      esbuild-register: 3.6.0(esbuild@0.19.12)
-      gel: 2.0.2
+      esbuild: 0.25.2
+      esbuild-register: 3.6.0(esbuild@0.25.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -7300,7 +7300,8 @@ snapshots:
 
   env-paths@2.2.1: {}
 
-  env-paths@3.0.0: {}
+  env-paths@3.0.0:
+    optional: true
 
   err-code@2.0.3: {}
 
@@ -7324,13 +7325,6 @@ snapshots:
       esbuild: 0.17.6
       local-pkg: 1.1.1
       resolve.exports: 2.0.3
-
-  esbuild-register@3.6.0(esbuild@0.19.12):
-    dependencies:
-      debug: 4.4.0
-      esbuild: 0.19.12
-    transitivePeerDependencies:
-      - supports-color
 
   esbuild-register@3.6.0(esbuild@0.25.2):
     dependencies:
@@ -7702,6 +7696,7 @@ snapshots:
       which: 4.0.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   generic-names@4.0.0:
     dependencies:
@@ -7983,7 +7978,8 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  isexe@3.1.1: {}
+  isexe@3.1.1:
+    optional: true
 
   jackspeak@3.4.3:
     dependencies:
@@ -9223,7 +9219,8 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shell-quote@1.8.2: {}
+  shell-quote@1.8.2:
+    optional: true
 
   side-channel-list@1.0.0:
     dependencies:
@@ -9816,6 +9813,7 @@ snapshots:
   which@4.0.0:
     dependencies:
       isexe: 3.1.1
+    optional: true
 
   why-is-node-running@2.3.0:
     dependencies:
