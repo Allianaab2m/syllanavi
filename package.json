@@ -24,7 +24,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@hono/zod-validator": "0.4.3",
+    "@hono/zod-validator": "0.5.0",
     "@paralleldrive/cuid2": "2.2.2",
     "@radix-ui/react-slot": "1.2.0",
     "@remix-run/cloudflare": "2.16.5",
