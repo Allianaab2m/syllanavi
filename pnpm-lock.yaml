@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: 0.5.0
-        version: 0.5.0(hono@4.7.10)(zod@3.24.4)
+        version: 0.5.0(hono@4.7.10)(zod@3.25.7)
       '@paralleldrive/cuid2':
         specifier: 2.2.2
         version: 2.2.2
@@ -63,8 +63,8 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
       zod:
-        specifier: 3.24.4
-        version: 3.24.4
+        specifier: 3.25.7
+        version: 3.25.7
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -4666,8 +4666,8 @@ packages:
   zod@3.22.3:
     resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
 
-  zod@3.24.4:
-    resolution: {integrity: sha512-OdqJE9UDRPwWsrHjLN2F8bPxvwJBK22EHLWtanu0LSYr5YqzsaaW3RMgmjwr8Rypg5k+meEJdSPXJZXE/yqOMg==}
+  zod@3.25.7:
+    resolution: {integrity: sha512-YGdT1cVRmKkOg6Sq7vY7IkxdphySKnXhaUmFI4r4FcuFVNgpCb9tZfNwXbT6BPjD5oz0nubFsoo9pIqKrDcCvg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -4947,7 +4947,7 @@ snapshots:
       semver: 7.7.2
       vitest: 3.1.4(@types/debug@4.1.12)(@types/node@22.15.18)(jiti@2.4.2)(yaml@2.8.0)
       wrangler: 4.15.2(@cloudflare/workers-types@4.20250519.0)
-      zod: 3.24.4
+      zod: 3.25.7
     transitivePeerDependencies:
       - '@cloudflare/workers-types'
       - bufferutil
@@ -5403,10 +5403,10 @@ snapshots:
       miniflare: 4.20250508.2
       wrangler: 4.15.2(@cloudflare/workers-types@4.20250519.0)
 
-  '@hono/zod-validator@0.5.0(hono@4.7.10)(zod@3.24.4)':
+  '@hono/zod-validator@0.5.0(hono@4.7.10)(zod@3.25.7)':
     dependencies:
       hono: 4.7.10
-      zod: 3.24.4
+      zod: 3.25.7
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -9327,6 +9327,6 @@ snapshots:
 
   zod@3.22.3: {}
 
-  zod@3.24.4: {}
+  zod@3.25.7: {}
 
   zwitch@2.0.4: {}
