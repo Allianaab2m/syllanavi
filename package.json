@@ -46,8 +46,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@chromatic-com/storybook": "3.2.6",
-    "@cloudflare/vitest-pool-workers": "0.8.38",
+    "@chromatic-com/storybook": "3.2.7",
+    "@cloudflare/vitest-pool-workers": "0.8.43",
     "@cloudflare/workers-types": "4.20250614.0",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
@@ -71,8 +71,8 @@
     "typescript": "5.8.3",
     "vite": "6.3.5",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.2.3",
-    "wrangler": "4.20.0"
+    "vitest": "3.2.4",
+    "wrangler": "4.20.5"
   },
   "engines": {
     "node": "22.16.0"
